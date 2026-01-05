@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<robot name="station_ur_orbbec_robotiq2f85" xmlns:xacro="http://wiki.ros.org/xacro">
+  
+    <!-- Import macros -->
+    <xacro:include filename="$(find robot_station_description)/urdf/common_properties.urdf"/>
+    <xacro:include filename="$(find robot_station_description)/urdf/station_800x440_bosch_macro.urdf.xacro"/>
+    <xacro:include filename="$(find robot_station_description)/urdf/ur_orbbec_robotiq2f85_macro.urdf.xacro"/>
+    <xacro:include filename="$(find robot_station_description)/urdf/messzelle_macro.urdf.xacro"/>
+    <!-- <xacro:include filename="$(find ifl_air_description)/urdf/robotertisch_1520x900_macro.urdf.xacro"/> -->
+    <!-- <xacro:include filename="$(find ifl_air_description)/urdf/robotertisch_kameraaufsatz_macro.urdf.xacro"/> -->
+    <!-- <xacro:include filename="$(find ifl_air_description)/urdf/robotertisch_800x1400_macro.urdf.xacro"/> -->
+    <!-- <xacro:include filename="$(find ifl_air_description)/urdf/robotertisch_virtual_macro.urdf.xacro"/> -->
+    <!-- <xacro:include filename="$(find ifl_air_description)/urdf/roboter_oberdecke_macro.urdf.xacro"/> -->
+    
+
+    <!-- create link fixed to the "world" -->
+    <link name="world" />
+
+    <!-- <xacro:arg name="joint_limit_params" default="$(find ifl_air_cell_small_ur_orbbec_robotiq_moveit_config)/config/joint_limits.yaml"/> -->
+
+    <xacro:robot_station_800x440 prefix="" parent="world" child="table_mount_link"/>
+    
+    <xacro:ur_orbbec_robotiq prefix="" parent="table_mount_link" finger_type="default" mount_orbbec="true">
+        <origin xyz="0 0 0" rpy="0 0 ${pi/2}"/>
+    </xacro:ur_orbbec_robotiq>
+
+    <xacro:messzelle_env prefix="" parent="world"/>
+
+</robot>

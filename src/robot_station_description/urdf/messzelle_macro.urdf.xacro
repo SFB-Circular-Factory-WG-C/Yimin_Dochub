@@ -1,0 +1,141 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:macro name="messzelle_env" params="prefix parent">
+        <link name="${prefix}ct_base_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://robot_station_description/meshes/visual/ct_no_door_simplified.stl" />
+                </geometry>
+                <material name="white" />
+                <origin xyz="0 0 0" rpy="0 0 0" />
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://robot_station_description/meshes/collision/ct_no_door_simplified.stl" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+            </collision>
+        </link>
+
+        <link name="${prefix}ct_left_door_link">
+            <visual>
+                <geometry>
+                    <box size="0.5 0.02 1.84" />
+                </geometry>
+                <material name="grey" />
+                <origin xyz="0.25 0 0" rpy="0 0 0" />
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="0.5 0.02 1.84" />
+                </geometry>
+                <origin xyz="0.25 0 0" rpy="0 0 0" />
+            </collision>
+        </link>
+
+        <link name="${prefix}ct_right_door_link">
+            <visual>
+                <geometry>
+                    <box size="0.5 0.02 1.84" />
+                </geometry>
+                <material name="grey" />
+                <origin xyz="-0.25 0 0" rpy="0 0 0" />
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="0.5 0.02 1.84" />
+                </geometry>
+                <origin xyz="-0.25 0 0" rpy="0 0 0" />
+            </collision>
+        </link>
+
+        <joint name="${prefix}ct_machine_joint" type="fixed">
+            <parent link="${parent}"/>
+            <child link="${prefix}ct_base_link"/>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </joint>
+
+        <joint name="${prefix}ct_left_door_joint" type="prismatic">
+            <parent link="${prefix}ct_base_link"/>
+            <child link="${prefix}ct_left_door_link"/>
+            <origin xyz="1.445 1.84 1.22" rpy="0 0 0" />
+            <axis xyz="1 0 0"/>
+            <limit lower="0" upper="0.5" effort="1000" velocity="1.0"/>
+        </joint>
+
+        <joint name="${prefix}ct_right_door_joint" type="prismatic">
+            <parent link="${prefix}ct_base_link"/>
+            <child link="${prefix}ct_right_door_link"/>
+            <origin xyz="1.445 1.84 1.22" rpy="0 0 0" />
+            <axis xyz="-1 0 0"/>
+            <limit lower="0" upper="0.5" effort="1000" velocity="1.0"/>
+            <mimic joint="${prefix}ct_left_door_joint" multiplier="1.0" offset="0.0" />
+        </joint>
+
+        <link name="${prefix}wall1_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://robot_station_description/meshes/visual/wall1_no_window_simplified.stl" />
+                </geometry>
+                <material name="white" />
+                <origin xyz="0 0 0" rpy="0 0 0" />
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://robot_station_description/meshes/collision/wall1_no_window_simplified.stl" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+            </collision>
+        </link>
+
+        <link name="${prefix}slide_window_link">
+            <visual>
+                <geometry>
+                    <box size="1.45 0.1 1.0" />
+                </geometry>
+                <material name="glass" />
+                <origin xyz="0 0 0" rpy="0 0 ${pi/2.0}" />
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="1.45 0.1 1.0" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 ${pi/2.0}" />
+            </collision>
+        </link>
+
+        <joint name="${prefix}wall1_joint" type="fixed">
+            <parent link="${parent}"/>
+            <child link="${prefix}wall1_link"/>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </joint>
+
+        <joint name="${prefix}slide_window_joint" type="prismatic">
+            <parent link="${prefix}wall1_link"/>
+            <child link="${prefix}slide_window_link"/>
+            <origin xyz="0.0 2.712 1.5" rpy="0 0 0" />
+            <axis xyz="0 0 1"/>
+            <limit lower="0" upper="1.0" effort="1000" velocity="1.0"/>
+        </joint>
+
+        <link name="${prefix}table_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://robot_station_description/meshes/visual/table_simplified.stl"/>
+                </geometry>
+                <material name="white"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://robot_station_description/meshes/visual/table_simplified.stl"/>
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name="${prefix}table_joint" type="fixed">
+            <parent link="${parent}"/>
+            <child link="${prefix}table_link"/>
+            <origin xyz="2.95 2.34 0" rpy="0 0 0" />
+        </joint>
+    </xacro:macro>
+</robot>
