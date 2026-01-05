@@ -63,8 +63,8 @@ username: user1
 password: crc1574
 topic for the door: esp32-door-distance-ct-cell/sensor/vl53l0x_distance/distance
 topic for the window: (?)
+```
 
-    - 
 - Build and source all these packages
 ``` bash
 > colcon build
@@ -72,7 +72,9 @@ topic for the window: (?)
 ```
 
 - Now we can run the following command to display the UR Robot in the CT cell environment
-ros2 launch robot_station_description view.launch.py
+``` bash
+> ros2 launch robot_station_description view.launch.py
+```
 
 ### How it works?
 ![rqt_graph](Resources/rqt_graph_mqtt.png)
