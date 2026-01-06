@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 window_mqtt_to_joint_state.py
-订阅 MQTT 状态消息（open/closed/uninitialized），映射为关节位置并发布到 /joint_states。
-适用于只有离散状态的滑动窗户。
+Subscribe to MQTT state messages (open/closed/uninitialized), map them to joint positions and publish to /joint_states.
+Suitable for sliding windows that only have discrete states.
 """
 
 import json
@@ -19,29 +19,29 @@ import paho.mqtt.client as mqtt
 
 class WindowMqttToJointStateNode(Node):
     """
-    订阅 MQTT 窗户状态消息，映射为 prismatic 关节位置并发布到 /joint_states。
+    Subscribe to MQTT window state messages, map them to prismatic joint positions and publish to /joint_states.
     
-    支持的状态：
-      - "open" → 100% (完全打开，position = max_travel)
-      - "closed" → 0% (关闭，position = 0.0)
-      - "uninitialized" → 0% (未初始化，position = 0.0)
+    Supported states:
+      - "open" → 100% (fully open, position = max_travel)
+      - "closed" → 0% (closed, position = 0.0)
+      - "uninitialized" → 0% (uninitialized, position = 0.0)
     
-    可配置参数：
-      - mqtt_host: MQTT Broker 地址（默认：localhost）
-      - mqtt_port: MQTT Broker 端口（默认：1883）
-      - mqtt_username: MQTT 用户名（默认：空字符串，表示无需认证）
-      - mqtt_password: MQTT 密码（默认：空字符串）
-      - mqtt_topic: 订阅主题（默认：home/window/state）
-      - prefix: 关节名称前缀（默认：空字符串，用于多机器人场景）
-      - joint_name: 关节基础名称（默认：window_slide_joint，实际名称为 prefix + joint_name）
-      - max_travel: 最大滑动距离（默认：0.5，对应 URDF 上限）
+    Configurable parameters:
+      - mqtt_host: MQTT Broker address (default: localhost)
+      - mqtt_port: MQTT Broker port (default: 1883)
+      - mqtt_username: MQTT username (default: empty string, means no auth)
+      - mqtt_password: MQTT password (default: empty string)
+      - mqtt_topic: subscription topic (default: home/window/state)
+      - prefix: joint name prefix (default: empty string, for multi-robot scenarios)
+      - joint_name: base joint name (default: window_slide_joint, actual name is prefix + joint_name)
+      - max_travel: maximum sliding distance (default: 0.5, corresponds to URDF limit)
     
-    支持 payload 格式：
-      - 纯字符串："open", "closed", "uninitialized"
-      - JSON：{"state": "open"} 或 {"status": "closed"}
+    Supported payload formats:
+      - Plain string: "open", "closed", "uninitialized"
+      - JSON: {"state": "open"} or {"status": "closed"}
     """
 
-    # 状态到百分比的映射
+    # Mapping from state to percentage
     STATE_MAP = {
         'open': 100.0,
         'closed': 0.0,
@@ -52,7 +52,7 @@ class WindowMqttToJointStateNode(Node):
         super().__init__('window_mqtt_to_joint_state')
 
         try:
-            # 声明参数
+            # Declare parameters
             self.declare_parameter(
                 'mqtt_host', '172.17.239.190',
                 ParameterDescriptor(description='MQTT broker host'))
@@ -78,7 +78,7 @@ class WindowMqttToJointStateNode(Node):
                 'max_travel', 1.0,
                 ParameterDescriptor(description='Max prismatic travel in meters'))
 
-            # 读取参数
+            # Read parameters
             self.mqtt_host = self.get_parameter('mqtt_host').get_parameter_value().string_value
             self.mqtt_port = self.get_parameter('mqtt_port').get_parameter_value().integer_value
             self.mqtt_username = self.get_parameter('mqtt_username').get_parameter_value().string_value
@@ -91,7 +91,7 @@ class WindowMqttToJointStateNode(Node):
             self.joint_name = f'{prefix}{base_joint_name}'
             
             
-            # 记录关节名称信息
+            # Log joint name information
             if prefix:
                 self.get_logger().info(
                     f'Using prefixed joint name: "{self.joint_name}" '
@@ -99,28 +99,28 @@ class WindowMqttToJointStateNode(Node):
             else:
                 self.get_logger().info(f'Using joint name: "{self.joint_name}" (no prefix)')
 
-            # 记录支持的状态
+            # Log supported states
             self.get_logger().info(f'Supported states: {list(self.STATE_MAP.keys())}')
             self.get_logger().info(f'State mapping: open=100%, closed=0%, uninitialized=0%')
 
-            # 发布 joint_states
+            # Publish joint_states
             self.pub = self.create_publisher(JointState, '/joint_states', 10)
 
-            # MQTT 客户端与线程
+            # MQTT client and thread
             self.mqtt_client = mqtt.Client()
             self.mqtt_client.on_connect = self._on_connect
             self.mqtt_client.on_message = self._on_message
             self._mqtt_thread: Optional[threading.Thread] = None
 
-            # 设置用户名和密码（如果提供）
+            # Set username and password (if provided)
             if self.mqtt_username:
                 self.mqtt_client.username_pw_set(self.mqtt_username, self.mqtt_password)
                 self.get_logger().info(f'MQTT authentication enabled for user: {self.mqtt_username}')
 
-            # 连接 MQTT
+            # Connect to MQTT
             self.mqtt_client.connect(self.mqtt_host, self.mqtt_port, keepalive=60)
             
-            # 启动后台线程处理 MQTT loop
+            # Start background thread to handle MQTT loop
             self._mqtt_thread = threading.Thread(target=self.mqtt_client.loop_forever, daemon=True)
             self._mqtt_thread.start()
             self.get_logger().info(
@@ -132,7 +132,7 @@ class WindowMqttToJointStateNode(Node):
             raise
 
     def _on_connect(self, client, userdata, flags, rc):
-        """MQTT 连接回调"""
+        """MQTT connection callback"""
         try:
             if rc == 0:
                 self.get_logger().info('MQTT connected successfully')
@@ -144,7 +144,7 @@ class WindowMqttToJointStateNode(Node):
             self.get_logger().error(f'Error in _on_connect: {e}')
 
     def _on_message(self, client, userdata, msg):
-        """MQTT 消息回调"""
+        """MQTT message callback"""
         try:
             payload = msg.payload.decode('utf-8').strip()
             state = self._parse_state(payload)
@@ -154,17 +154,17 @@ class WindowMqttToJointStateNode(Node):
                     f'Invalid payload "{payload}", expected one of: {list(self.STATE_MAP.keys())}')
                 return
 
-            # 获取状态对应的百分比
+            # Get the percentage corresponding to the state
             percent = self.STATE_MAP.get(state.lower())
             if percent is None:
                 self.get_logger().warn(
                     f'Unknown state "{state}", expected one of: {list(self.STATE_MAP.keys())}')
                 return
 
-            # 映射到关节位置
+            # Map to joint position
             position = (percent / 100.0) * self.max_travel
 
-            # 发布 JointState
+            # Publish JointState
             js = JointState()
             js.header.stamp = self.get_clock().now().to_msg()
             js.name = [self.joint_name]
@@ -180,21 +180,21 @@ class WindowMqttToJointStateNode(Node):
     @staticmethod
     def _parse_state(text: str) -> Optional[str]:
         """
-        解析状态字符串
-        支持格式：
-          - 纯字符串："open", "closed", "uninitialized"
-          - JSON：{"state": "open"} 或 {"status": "closed"}
+        Parse state string
+        Supported formats:
+          - Plain string: "open", "closed", "uninitialized"
+          - JSON: {"state": "open"} or {"status": "closed"}
         """
-        # 尝试直接作为状态字符串
+        # Try as a direct state string
         text_lower = text.lower().strip()
         if text_lower in WindowMqttToJointStateNode.STATE_MAP:
             return text_lower
 
-        # 尝试解析 JSON
+        # Try parsing JSON
         try:
             data = json.loads(text)
             if isinstance(data, dict):
-                # 支持 "state" 或 "status" 字段
+                # Support "state" or "status" fields
                 for key in ['state', 'status']:
                     if key in data:
                         state_value = str(data[key]).lower().strip()
@@ -207,7 +207,7 @@ class WindowMqttToJointStateNode(Node):
 
 
 def main(args=None):
-    """主函数"""
+    """Main function"""
     rclpy.init(args=args)
     node = None
 
@@ -226,7 +226,7 @@ def main(args=None):
             print(f'Failed to create WindowMqttToJointStateNode: {e}')
 
     finally:
-        # 清理资源
+        # Clean up resources
         if node:
             try:
                 node.mqtt_client.disconnect()
