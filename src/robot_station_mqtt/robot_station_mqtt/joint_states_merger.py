@@ -4,16 +4,17 @@ from sensor_msgs.msg import JointState
 
 class JointStateMerger(Node):
     """
-    合并多个 joint_states 源的节点。
-    订阅来自不同源的关节状态消息，合并后发布到统一的 /joint_states 话题。
-    支持多源控制，避免发布者冲突。
+    Node that merges multiple joint_states sources.
+    Subscribes to joint state messages from different sources and publishes a merged
+    message to a unified /joint_states topic.
+    Supports multi-source control and avoids publisher conflicts.
     """
     
     def __init__(self):
         super().__init__('joint_state_merger')
         
         try:
-            # 订阅两个独立的 joint_states 源
+            # Subscribe to two independent joint_states sources
             self.sub_jsp = self.create_subscription(
                 JointState, '/joint_states_manual', self.jsp_callback, 10)
             self.sub_mqtt_door = self.create_subscription(
@@ -21,10 +22,10 @@ class JointStateMerger(Node):
             self.sub_mqtt_window = self.create_subscription(
                 JointState, '/joint_states_window', self.mqtt_window_callback, 10)
             
-            # 发布合并后的 joint_states
+            # Publish merged joint_states
             self.pub = self.create_publisher(JointState, '/joint_states', 10)
             
-            # 缓存最新的关节状态
+            # Cache the latest joint states
             self.manual_joints = {}  # {joint_name: position}
             self.mqtt_door_joints = {}
             self.mqtt_window_joints = {}
@@ -38,7 +39,7 @@ class JointStateMerger(Node):
             raise
     
     def jsp_callback(self, msg):
-        """处理来自 joint_state_publisher 的消息"""
+        """Handle messages from joint_state_publisher"""
         try:
             if not msg.name or len(msg.name) != len(msg.position):
                 self.get_logger().warn('Invalid manual joint_states message: name/position mismatch')
@@ -54,7 +55,7 @@ class JointStateMerger(Node):
             self.get_logger().error(f'Error in jsp_callback: {e}')
     
     def mqtt_door_callback(self, msg):
-        """处理来自 MQTT 节点的消息"""
+        """Handle messages from the MQTT door node"""
         try:
             if not msg.name or len(msg.name) != len(msg.position):
                 self.get_logger().warn('Invalid MQTT joint_states message: name/position mismatch')
@@ -70,7 +71,7 @@ class JointStateMerger(Node):
             self.get_logger().error(f'Error in mqtt_door_callback: {e}')
     
     def mqtt_window_callback(self, msg):
-        """处理来自 MQTT 窗户节点的消息"""
+        """Handle messages from the MQTT window node"""
         try:
             if not msg.name or len(msg.name) != len(msg.position):
                 self.get_logger().warn('Invalid MQTT joint_states message: name/position mismatch')
@@ -86,9 +87,9 @@ class JointStateMerger(Node):
             self.get_logger().error(f'Error in mqtt_window_callback: {e}')
     
     def publish_merged(self):
-        """合并并发布关节状态"""
+        """Merge and publish joint states"""
         try:
-            # 合并两个字典，MQTT 优先（覆盖手动控制的同名关节）
+            # Merge the dictionaries, MQTT has priority (overwrites manual control joints with the same name)
             merged = {**self.manual_joints, **self.mqtt_door_joints, **self.mqtt_window_joints}
 
             if not merged:
@@ -108,7 +109,7 @@ class JointStateMerger(Node):
 
 
 def main(args=None):
-    """主函数"""
+    """Main function"""
     rclpy.init(args=args)
     node = JointStateMerger()
     
@@ -126,7 +127,7 @@ def main(args=None):
             print(f'Failed to create Joint State Merger node: {e}')
             
     finally:
-        # 清理资源
+        # Clean up resources
         if node:
             node.destroy_node()
         if rclpy.ok():
