@@ -31,7 +31,7 @@ class WindowMqttToJointStateNode(Node):
       - mqtt_port: MQTT Broker port (default: 1883)
       - mqtt_username: MQTT username (default: empty string, means no auth)
       - mqtt_password: MQTT password (default: empty string)
-      - mqtt_topic: subscription topic (default: home/window/state)
+      - mqtt_topic: subscription topic (default: test/window/state)
       - prefix: joint name prefix (default: empty string, for multi-robot scenarios)
       - joint_name: base joint name (default: window_slide_joint, actual name is prefix + joint_name)
       - max_travel: maximum sliding distance (default: 0.5, corresponds to URDF limit)
@@ -54,7 +54,7 @@ class WindowMqttToJointStateNode(Node):
         try:
             # Declare parameters
             self.declare_parameter(
-                'mqtt_host', '172.17.239.190',
+                'mqtt_host', '192.168.2.104',
                 ParameterDescriptor(description='MQTT broker host'))
             self.declare_parameter(
                 'mqtt_port', 1883,

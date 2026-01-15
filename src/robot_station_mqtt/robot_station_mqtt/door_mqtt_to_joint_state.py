@@ -39,7 +39,7 @@ class DoorMqttToJointStateNode(Node):
             'prefix', '', 
             ParameterDescriptor(description='Prefix for joint names')) 
         self.declare_parameter(
-            'mqtt_host', '172.17.239.190',
+            'mqtt_host', '192.168.2.104',
             ParameterDescriptor(description='MQTT broker host'))
         self.declare_parameter(
             'mqtt_port', 1883,
