@@ -23,12 +23,10 @@ class DoorMqttToJointStateNode(Node):
       - max_travel: maximum prismatic travel (default:0.5, corresponds to URDF limit)
       - mimic_multiplier/mimic_offset: for right joint mimic behavior
         - mqtt_username/mqtt_password: for MQTT authentication (example: user1/12345)
-    Supports payload as plain numeric string (e.g. "25", "75.0"), or JSON (e.g. {"percent": 25}).
-    Maps [0%,100%] to [0,max_travel] (m) for left joint, and applies mimic for right joint.
+    Supports payload as plain numeric string (e.g. "0.665", "0.332"), or JSON (e.g. {"percent": 25}).
+    Maps the string to [0,max_travel] (m) for left joint, and applies mimic for right joint.
     * Problem is what we get from MQTT is actually the distance from the sensor to the door edge,
-    * so 0% means fully closed (about 0.33m), and 100% means fully open (about 0.63m).
-    * My idea is to have the sensor/MQTT publisher side convert the distance to door open distance,
-    * This conversion should be handled by the sensor/MQTT publisher side later.
+    * so 0% means fully closed (about 0.64m), and 100% means fully open (about 0.34m).
     """
 
     def __init__(self):

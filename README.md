@@ -2,7 +2,7 @@
 This repo provides the ros2 scripts that were used to spawn and control a robot at wbk ct-cell. 
 
 
-### Requirements
+## Requirements
 - Ubuntu 22.04
 - ros2-humble Reference: [ros2 humble ubuntu installation](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
 - A workspace(e.g. ~/ifl_test_ws/)
@@ -37,8 +37,8 @@ $ cd
 $ gedit .bashrc
 
 # Add the following line to the end of this file
-$ source /opt/ros/humble/setup.bash
-$ source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
+source /opt/ros/humble/setup.bash
+source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
 # Save and exit
 
 $ source .bashrc
@@ -60,14 +60,14 @@ $ git clone https://github.com/UniversalRobots/Universal_Robots_ROS2_Description
 $ git clone https://gitlab.kit.edu/kit/ifl/gruppen/air/ros2/ros2_robotiq_gripper.git
 ```
 
-- **NOTE** that information that is now written in the node script is only for test purpose. It should be modified according to the real setup at wbk.
+- **NOTE** Information to mqtt broker and relevant topics
 ```
 mqtt_host: 172.23.253.37
 mqtt_port: 1884
 username: user1
 password: crc1574
-topic for the door: esp32-door-distance-ct-cell/sensor/vl53l0x_distance/distance
-topic for the window: (?)
+topic for the door: esp32-door-distance-ct-cell/sensor/vl53l0x_distance/state
+topic for the window: esp32-window-ct/select/status/state
 ```
 
 - Build and source all these packages
@@ -89,14 +89,13 @@ $ source install/setup.bash
 $ ros2 launch robot_station_description view.launch.py
 ```
 
-### How it works?
+## How it works?
 ![rqt_graph](Resources/rqt_graph_mqtt.png)
 - The movement of joints in Rviz depends on the data from the topic /joint_states
 - Data from the MQTT broker is converted to translation data to the corresponding joint before being published to the topic /joint_states_door and /joint_states_window
 - Another node called "joint_state_merger" will merge the data from these topics and publish the combined data together with joint states of the UR robot to /joint_states
 - A demo video can be found in /Resources/demo1.mp4
-### What to do next?
-1. Modify the node scripts so that they are fully compatible with the real setup at wbk
+## What to do next?
 1. Add moveit setup
 1. Add collision zone
 
