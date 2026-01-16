@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 window_mqtt_to_joint_state.py
-Subscribe to MQTT state messages (open/closed/uninitialized), map them to joint positions and publish to /joint_states.
+Subscribe to MQTT state messages (Open/Closed/Uninitialized), map them to joint positions and publish to /joint_states.
 Suitable for sliding windows that only have discrete states.
 """
 
@@ -22,9 +22,9 @@ class WindowMqttToJointStateNode(Node):
     Subscribe to MQTT window state messages, map them to prismatic joint positions and publish to /joint_states.
     
     Supported states:
-      - "open" → 100% (fully open, position = max_travel)
-      - "closed" → 0% (closed, position = 0.0)
-      - "uninitialized" → 0% (uninitialized, position = 0.0)
+      - "Open" → 100% (fully Open, position = max_travel)
+      - "Closed" → 0% (Closed, position = 0.0)
+      - "Uninitialized" → 0% (Uninitialized, position = 0.0)
     
     Configurable parameters:
       - mqtt_host: MQTT Broker address (default: localhost)
@@ -37,15 +37,15 @@ class WindowMqttToJointStateNode(Node):
       - max_travel: maximum sliding distance (default: 0.5, corresponds to URDF limit)
     
     Supported payload formats:
-      - Plain string: "open", "closed", "uninitialized"
-      - JSON: {"state": "open"} or {"status": "closed"}
+      - Plain string: "Open", "Closed", "Uninitialized"
+      - JSON: {"state": "Open"} or {"status": "Closed"}
     """
 
     # Mapping from state to percentage
     STATE_MAP = {
-        'open': 100.0,
-        'closed': 0.0,
-        'uninitialized': 0.0
+        'Open': 100.0,
+        'Closed': 0.0,
+        'Uninitialized': 0.0
     }
 
     def __init__(self):
@@ -54,19 +54,28 @@ class WindowMqttToJointStateNode(Node):
         try:
             # Declare parameters
             self.declare_parameter(
-                'mqtt_host', '192.168.2.104',
+                'mqtt_host', 
+                # '192.168.2.104', # test at home
+                # '172.17.56.139', # test VM at wbk
+                '172.23.253.37', # nuc at wbk
                 ParameterDescriptor(description='MQTT broker host'))
             self.declare_parameter(
-                'mqtt_port', 1883,
+                'mqtt_port', 
+                # 1883, # test
+                1884, # nuc at wbk
                 ParameterDescriptor(description='MQTT broker port'))
             self.declare_parameter(
                 'mqtt_username', 'user1',
                 ParameterDescriptor(description='MQTT username (empty for no auth)'))
             self.declare_parameter(
-                'mqtt_password', '12345',
+                'mqtt_password', 
+                # '12345', # test
+                'crc1574', # nuc at wbk
                 ParameterDescriptor(description='MQTT password'))
             self.declare_parameter(
-                'mqtt_topic', 'test/window/state',
+                'mqtt_topic', 
+                # 'test/window/state', # test
+                'esp32-window-ct/select/status/state', # wbk
                 ParameterDescriptor(description='MQTT topic for window state'))
             self.declare_parameter(
                 'prefix', '',
@@ -101,7 +110,7 @@ class WindowMqttToJointStateNode(Node):
 
             # Log supported states
             self.get_logger().info(f'Supported states: {list(self.STATE_MAP.keys())}')
-            self.get_logger().info(f'State mapping: open=100%, closed=0%, uninitialized=0%')
+            self.get_logger().info(f'State mapping: Open=100%, Closed=0%, Uninitialized=0%')
 
             # Publish joint_states
             self.pub = self.create_publisher(JointState, '/joint_states', 10)
@@ -154,8 +163,12 @@ class WindowMqttToJointStateNode(Node):
                     f'Invalid payload "{payload}", expected one of: {list(self.STATE_MAP.keys())}')
                 return
 
-            # Get the percentage corresponding to the state
-            percent = self.STATE_MAP.get(state.lower())
+            # Get the percentage corresponding to the state (case-insensitive match)
+            percent = None
+            for key, val in self.STATE_MAP.items():
+                if key == state or key.lower() == state.lower():
+                    percent = val
+                    break
             if percent is None:
                 self.get_logger().warn(
                     f'Unknown state "{state}", expected one of: {list(self.STATE_MAP.keys())}')
@@ -182,24 +195,39 @@ class WindowMqttToJointStateNode(Node):
         """
         Parse state string
         Supported formats:
-          - Plain string: "open", "closed", "uninitialized"
-          - JSON: {"state": "open"} or {"status": "closed"}
+          - Plain string: "Open", "Closed", "Uninitialized"
+          - JSON: {"state": "Open"} or {"status": "Closed"}
         """
-        # Try as a direct state string
-        text_lower = text.lower().strip()
-        if text_lower in WindowMqttToJointStateNode.STATE_MAP:
-            return text_lower
+        # Preserve and return the exact string as published when it matches a known state.
+        raw = text.strip()
+        if not raw:
+            return None
 
-        # Try parsing JSON
+        # Direct exact match against known states
+        for key in WindowMqttToJointStateNode.STATE_MAP.keys():
+            if raw == key:
+                return raw
+
+        # Case-insensitive direct match: return the original casing from the payload
+        for key in WindowMqttToJointStateNode.STATE_MAP.keys():
+            if raw.lower() == key.lower():
+                return raw
+
+        # Try parsing JSON and extract 'state' or 'status' without forcing lower-case
         try:
             data = json.loads(text)
             if isinstance(data, dict):
-                # Support "state" or "status" fields
-                for key in ['state', 'status']:
-                    if key in data:
-                        state_value = str(data[key]).lower().strip()
-                        if state_value in WindowMqttToJointStateNode.STATE_MAP:
-                            return state_value
+                for field in ('state', 'status'):
+                    if field in data:
+                        state_value = str(data[field]).strip()
+                        # Exact match
+                        for key in WindowMqttToJointStateNode.STATE_MAP.keys():
+                            if state_value == key:
+                                return state_value
+                        # Case-insensitive match -> still return original casing
+                        for key in WindowMqttToJointStateNode.STATE_MAP.keys():
+                            if state_value.lower() == key.lower():
+                                return state_value
         except Exception:
             pass
 

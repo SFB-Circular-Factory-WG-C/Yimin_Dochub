@@ -123,13 +123,15 @@
                 <geometry>
                     <mesh filename="package://robot_station_description/meshes/visual/table_simplified.stl"/>
                 </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0" />
                 <material name="white"/>
             </visual>
             <collision>
                 <geometry>
                     <mesh filename="package://robot_station_description/meshes/visual/table_simplified.stl"/>
                 </geometry>
-            </collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+            </collision>k
         </link>
 
         <joint name="${prefix}table_joint" type="fixed">

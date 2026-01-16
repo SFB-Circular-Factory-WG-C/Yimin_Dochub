@@ -16,7 +16,7 @@ class DoorMqttToJointStateNode(Node):
     """
     Subscribe to MQTT door open percentage, map it to prismatic joint positions and publish to /joint_states.
     Configurable parameters:
-      - mqtt_host: MQTT broker host (example: 172.17.239.190)
+      - mqtt_host: MQTT broker host (example: 192.168.2.104)
       - mqtt_port: MQTT broker port (default:1883)
       - mqtt_topic: MQTT topic to subscribe to (example: test/door/distance)
       - left_joint_name/right_joint_name: joint names (example: ${prefix}ct_left_door_joint, must match URDF)
@@ -39,13 +39,20 @@ class DoorMqttToJointStateNode(Node):
             'prefix', '', 
             ParameterDescriptor(description='Prefix for joint names')) 
         self.declare_parameter(
-            'mqtt_host', '192.168.2.104',
+            'mqtt_host', 
+            # '192.168.2.104', # test at home
+            # '172.17.56.139', # test VM at wbk
+            '172.23.253.37', # nuc at wbk
             ParameterDescriptor(description='MQTT broker host'))
         self.declare_parameter(
-            'mqtt_port', 1883,
+            'mqtt_port', 
+            # 1883, # test
+            1884, # nuc at wbk
             ParameterDescriptor(description='MQTT broker port'))
         self.declare_parameter(
-            'mqtt_topic', 'test/door/distance',
+            'mqtt_topic', 
+            # 'test/door/distance', # test
+            'esp32-door-distance-ct-cell/sensor/vl53l0x_distance/state', # wbk
             ParameterDescriptor(description='MQTT topic for door distance'))
         self.declare_parameter(
             'left_joint_name', 'ct_left_door_joint',
@@ -66,7 +73,9 @@ class DoorMqttToJointStateNode(Node):
             'mqtt_username', 'user1',
             ParameterDescriptor(description='MQTT username (empty for no auth)'))
         self.declare_parameter(
-            'mqtt_password', '12345',
+            'mqtt_password', 
+            # '12345', # test
+            'crc1574', # nuc at wbk
             ParameterDescriptor(description='MQTT password'))
 
         # Read parameters
@@ -128,9 +137,21 @@ class DoorMqttToJointStateNode(Node):
     # MQTT message callback
     def _on_message(self, client, userdata, msg):
         payload = msg.payload.decode('utf-8').strip()
-        percent = self._parse_percent(payload)
-        if percent is None:
-            self.get_logger().warn(f'Invalid payload "{payload}", expected number or JSON with "percent"')
+        value = self._parse_percent(payload)
+        if value is None:
+            self.get_logger().warn(f'Invalid payload "{payload}", expected number or JSON with "percent" or distance')
+            return
+
+        # If the publisher sends a distance in meters (e.g. 0.34..0.64),
+        # map that to percent where 0.34 -> 100% and 0.64 -> 0%.
+        try:
+                sensor_min = 0.34
+                sensor_max = 0.64
+                # Clamp sensor value into expected sensor range
+                sensor_val = max(sensor_min, min(sensor_max, float(value)))
+                percent = (sensor_max - sensor_val) / (sensor_max - sensor_min) * 100.0
+        except Exception:
+            self.get_logger().warn(f'Failed to interpret payload value "{value}"')
             return
 
         # Clamp to [0, 100]
