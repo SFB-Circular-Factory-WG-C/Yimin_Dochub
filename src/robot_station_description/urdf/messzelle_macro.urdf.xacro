@@ -15,6 +15,7 @@
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0" />
             </collision>
+            <xacro:box_inertia m="10000.0" x="3.7" y="1.84" z="2.445" o_xyz="0 0 0" o_rpy="0 0 0"/>
         </link>
 
         <link name="${prefix}ct_left_door_link">
@@ -31,6 +32,7 @@
                 </geometry>
                 <origin xyz="0.25 0 0" rpy="0 0 0" />
             </collision>
+            <xacro:box_inertia m="5.0" x="0.5" y="0.02" z="1.84" o_xyz="0.25 0 0" o_rpy="0 0 0"/>
         </link>
 
         <link name="${prefix}ct_right_door_link">
@@ -47,18 +49,19 @@
                 </geometry>
                 <origin xyz="-0.25 0 0" rpy="0 0 0" />
             </collision>
+            <xacro:box_inertia m="5.0" x="0.5" y="0.02" z="1.84" o_xyz="-0.25 0 0" o_rpy="0 0 0"/>
         </link>
 
         <joint name="${prefix}ct_machine_joint" type="fixed">
             <parent link="${parent}"/>
             <child link="${prefix}ct_base_link"/>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="1.8 0.92 1.2225" rpy="0 0 0" />
         </joint>
 
         <joint name="${prefix}ct_left_door_joint" type="prismatic">
             <parent link="${prefix}ct_base_link"/>
             <child link="${prefix}ct_left_door_link"/>
-            <origin xyz="1.445 1.84 1.22" rpy="0 0 0" />
+            <origin xyz="-0.405 0.92 -0.0025" rpy="0 0 0" />
             <axis xyz="1 0 0"/>
             <limit lower="0" upper="0.5" effort="1000" velocity="1.0"/>
         </joint>
@@ -66,7 +69,7 @@
         <joint name="${prefix}ct_right_door_joint" type="prismatic">
             <parent link="${prefix}ct_base_link"/>
             <child link="${prefix}ct_right_door_link"/>
-            <origin xyz="1.445 1.84 1.22" rpy="0 0 0" />
+            <origin xyz="-0.405 0.92 -0.0025" rpy="0 0 0" />
             <axis xyz="-1 0 0"/>
             <limit lower="0" upper="0.5" effort="1000" velocity="1.0"/>
             <mimic joint="${prefix}ct_left_door_joint" multiplier="1.0" offset="0.0" />
@@ -86,6 +89,7 @@
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0" />
             </collision>
+            <xacro:box_inertia m="50.0" x="0.1" y="4.865" z="3.65" o_xyz="0 0 0" o_rpy="0 0 0"/>
         </link>
 
         <link name="${prefix}slide_window_link">
@@ -102,16 +106,17 @@
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 ${pi/2.0}" />
             </collision>
+            <xacro:box_inertia m="5.0" x="1.45" y="0.1" z="1.0" o_xyz="0 0 0" o_rpy="0 0 ${pi/2.0}"/>
         </link>
 
         <joint name="${prefix}wall1_joint" type="fixed">
             <parent link="${parent}"/>
             <child link="${prefix}wall1_link"/>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="-0.05 2.4325 1.825" rpy="0 0 0" />
         </joint>
 
         <joint name="${prefix}slide_window_joint" type="prismatic">
-            <parent link="${prefix}wall1_link"/>
+            <parent link="${parent}"/>
             <child link="${prefix}slide_window_link"/>
             <origin xyz="0.0 2.712 1.5" rpy="0 0 0" />
             <axis xyz="0 0 1"/>
@@ -131,13 +136,14 @@
                     <mesh filename="package://robot_station_description/meshes/visual/table_simplified.stl"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0" />
-            </collision>k
+            </collision>
+            <xacro:box_inertia m="5.0" x="1.5" y="0.8" z="1.0" o_xyz="0 0 0" o_rpy="0 0 0"/>
         </link>
 
         <joint name="${prefix}table_joint" type="fixed">
             <parent link="${parent}"/>
             <child link="${prefix}table_link"/>
-            <origin xyz="2.95 2.34 0" rpy="0 0 0" />
+            <origin xyz="2.95 2.34 0.5" rpy="0 0 0" />
         </joint>
     </xacro:macro>
 </robot>

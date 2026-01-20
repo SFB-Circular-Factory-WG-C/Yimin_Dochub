@@ -16,11 +16,7 @@
             <box size="0.8 0.44 0.848"/>
           </geometry>
         </collision>
-        <!-- <inertial>
-          <mass value="2" />
-          <origin xyz="0 0 0" />
-          <inertia ixx="8.432e-3" ixy="3.804169e-6" ixz="7.00981e-7" iyy="8.460e-3" iyz="-8.41529e-7" izz="1.606e-2" />
-        </inertial> -->
+        <xacro:box_inertia m="150.0" x="0.8" y="0.44" z="0.848" o_xyz="0 0 0" o_rpy="0 0 0"/>
     </link>
 
 
