@@ -5,9 +5,9 @@ moveit_setup_assistant_config:
   srdf:
     relative_path: config/robot_station_cell.srdf
   package_settings:
-    author_name: yimin
+    author_name: Yimin Hu
     author_email: yimin.hu@student.kit.edu
-    generated_timestamp: 1769078545
+    generated_timestamp: 1769081919
   control_xacro:
     command:
       - position
