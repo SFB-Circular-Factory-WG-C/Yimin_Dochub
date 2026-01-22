@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <!-- 
+    Macro for complete robot station with UR manipulator, Orbbec camera, and Robotiq gripper
+    
+    Parameters:
+      - tf_prefix: Prefix for all joint and link names (default: "")
+      - ur_type: UR robot model (ur3, ur3e, ur5, ur5e, ur10, ur10e, ur16e, ur20, ur30) (default: "ur10e")
+      - parent: Parent link name (default: "world")
+      - finger_type: Robotiq finger type - 'default', '75' or '160' (default: "default")
+      - mount_orbbec: Whether to mount Orbbec camera (default: true)
+      - include_station: Whether to include the robot station base (default: true)
+      - include_messzelle: Whether to include measurement cell environment (default: true)
+  -->
+
+  <xacro:macro name="station_ur_orbbec_robotiq" params="
+    tf_prefix:=''
+    ur_type:='ur10e'
+    parent:='world'
+    finger_type:='default'
+    mount_orbbec:=true
+    include_station:=true
+    include_messzelle:=true
+    origin_xyz:='0 0 0'
+    origin_rpy:='0 0 0'">
+
+    <!-- Import common properties and macros -->
+    <xacro:include filename="$(find robot_station_description)/urdf/common_properties.urdf"/>
+    <xacro:include filename="$(find robot_station_description)/urdf/station_800x440_bosch_macro.urdf.xacro"/>
+    <xacro:include filename="$(find robot_station_description)/urdf/ur_orbbec_robotiq2f85_macro.urdf.xacro"/>
+    <xacro:include filename="$(find robot_station_description)/urdf/messzelle_macro.urdf.xacro"/>
+
+    <!-- Create world link if parent is "world" -->
+    <xacro:if value="${parent == 'world'}">
+      <link name="${tf_prefix}world" />
+      <xacro:property name="station_parent" value="${tf_prefix}world"/>
+    </xacro:if>
+    
+    <xacro:unless value="${parent == 'world'}">
+      <xacro:property name="station_parent" value="${parent}"/>
+    </xacro:unless>
+
+    <!-- Robot station base: 800x440 mm Bosch table -->
+    <xacro:if value="${include_station}">
+      <xacro:robot_station_800x440 
+        prefix="${tf_prefix}" 
+        parent="${station_parent}" 
+        child="${tf_prefix}table_mount_link"/>
+      <xacro:property name="robot_parent" value="${tf_prefix}table_mount_link"/>
+    </xacro:if>
+
+    <xacro:unless value="${include_station}">
+      <xacro:property name="robot_parent" value="${station_parent}"/>
+    </xacro:unless>
+
+    <!-- UR manipulator with Orbbec camera and Robotiq gripper -->
+    <xacro:ur_orbbec_robotiq 
+      prefix="${tf_prefix}" 
+      parent="${robot_parent}" 
+      finger_type="${finger_type}"
+      mount_orbbec="${mount_orbbec}">
+      <origin xyz="${origin_xyz}" rpy="${origin_rpy}"/>
+    </xacro:ur_orbbec_robotiq>
+
+    <!-- Measurement cell environment -->
+    <xacro:if value="${include_messzelle}">
+      <xacro:messzelle_env 
+        prefix="${tf_prefix}" 
+        parent="${station_parent}"/>
+    </xacro:if>
+
+  </xacro:macro>
+
+</robot>
