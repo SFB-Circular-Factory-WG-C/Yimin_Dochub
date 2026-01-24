@@ -18,6 +18,9 @@ $ sudo snap install code --classic
 $ sudo apt install ros-humble-urdf-tutorial
 $ sudo apt install ros-humble-tf2-tools
 $ sudo apt install ros-humble-ros-gazebo
+$ sudo apt install ros-humble-ros2-control ros-humble-ros2-controllers
+$ sudo apt install ros-humble-rmw-cyclonedds-cpp
+$ sudo apt install ros-humble-moveit
 
 $ source /opt/ros/humble/setup.bash
 ```
@@ -37,6 +40,8 @@ $ cd
 $ gedit .bashrc
 
 # Add the following line to the end of this file
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+
 source /opt/ros/humble/setup.bash
 source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
 # Save and exit
@@ -56,8 +61,9 @@ $ git clone https://github.com/SFB-Circular-Factory-WG-C/Yimin_Dochub.git
 
 # official repo for UR robots and some other repos from IFL
 $ cd ifl_test_ws/src
-$ git clone https://github.com/UniversalRobots/Universal_Robots_ROS2_Description.git
+$ git clone -b humble https://github.com/UniversalRobots/Universal_Robots_ROS2_Description.git
 $ git clone https://gitlab.kit.edu/kit/ifl/gruppen/air/ros2/ros2_robotiq_gripper.git
+$ git clone -b ros2 https://github.com/tylerjw/serial.git
 ```
 
 - **NOTE** Information to mqtt broker and relevant topics
@@ -65,7 +71,7 @@ $ git clone https://gitlab.kit.edu/kit/ifl/gruppen/air/ros2/ros2_robotiq_gripper
 mqtt_host: 172.23.253.37
 mqtt_port: 1884
 username: user1
-password: crc1574
+password: (Please contact me)
 topic for the door: esp32-door-distance-ct-cell/sensor/vl53l0x_distance/state
 topic for the window: esp32-window-ct/select/status/state
 ```
@@ -98,6 +104,7 @@ $ ros2 launch robot_station_description view.launch.py
 ## What to do next?
 1. Add moveit setup
 1. Add collision zone
+
 
 
 

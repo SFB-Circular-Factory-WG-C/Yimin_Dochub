@@ -11,7 +11,7 @@
   <xacro:arg name="name" default="ur"/>
 
   <!-- Import macros -->
-  <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_85_macro.urdf.xacro" />
+  <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_140_macro.urdf.xacro" />
   <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_85_75_macro.urdf.xacro" />
   <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_85_160_macro.urdf.xacro" />
   <xacro:include filename="$(find ur_description)/urdf/ur_macro.xacro"/>
@@ -139,7 +139,7 @@
 
   <xacro:if value="${finger_type == 'default'}">
     <!-- Use the macro for original fingers -->
-    <xacro:robotiq_gripper name="Robotiq2f85OriginalFinger" prefix="${prefix}" parent="${prefix}gripper_base" use_fake_hardware="$(arg use_fake_hardware)">
+    <xacro:robotiq_gripper name="Robotiq2f140OriginalFinger" prefix="${prefix}" parent="${prefix}gripper_base" use_fake_hardware="$(arg use_fake_hardware)">
       <origin xyz="0 0 0" rpy="0 0 0" />
     </xacro:robotiq_gripper>
 

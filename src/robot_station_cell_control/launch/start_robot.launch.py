@@ -40,7 +40,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "robot_ip",
-            default_value="192.168.56.101",  # put your robot's IP address here
+            default_value="172.23.253.44",  # put your robot's IP address here
             description="IP address by which the robot can be reached.",
         )
     )
@@ -66,7 +66,8 @@ def generate_launch_description():
                 launch_arguments={
                     "ur_type": ur_type,
                     "robot_ip": robot_ip,
-                    "tf_prefix": [LaunchConfiguration("ur_type"), "_"],
+                    # "tf_prefix": [LaunchConfiguration("ur_type"), "_"],
+                    "tf_prefix": "",
                     "rviz_config_file": PathJoinSubstitution(
                         [
                             FindPackageShare("robot_station_description"),
