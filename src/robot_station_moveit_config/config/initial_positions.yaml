@@ -1,9 +1,12 @@
 # Default initial positions for station_ur_orbbec_robotiq2f85's ros2_control fake system
 
 initial_positions:
+  ct_left_door_joint: 0
   elbow_joint: 0
+  finger_joint: 0
   shoulder_lift_joint: 0
   shoulder_pan_joint: 0
+  slide_window_joint: 0
   wrist_1_joint: 0
   wrist_2_joint: 0
   wrist_3_joint: 0

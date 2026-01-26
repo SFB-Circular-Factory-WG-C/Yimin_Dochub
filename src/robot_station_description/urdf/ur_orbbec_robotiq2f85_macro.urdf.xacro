@@ -12,8 +12,8 @@
 
   <!-- Import macros -->
   <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_140_macro.urdf.xacro" />
-  <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_85_75_macro.urdf.xacro" />
-  <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_85_160_macro.urdf.xacro" />
+  <!-- <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_85_75_macro.urdf.xacro" />
+  <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_85_160_macro.urdf.xacro" /> -->
   <xacro:include filename="$(find ur_description)/urdf/ur_macro.xacro"/>
   <xacro:include filename="$(find robotiq_description)/urdf/ur_to_robotiq_adapter.urdf.xacro"/>
   <xacro:include filename="$(find robot_station_description)/urdf/dual_camera_mount_macro.urdf.xacro"/>
@@ -104,38 +104,6 @@
   <xacro:ur_to_robotiq prefix="${prefix}" parent="${prefix}tool0_ext" child="${prefix}gripper_base" rotation="${pi/2}"/>
 
   <!-- gripper -->
-
-  <xacro:if value="${finger_type == 'custom_160'}">
-    <!-- Use the macro for 160mm fingers -->
-    <xacro:robotiq_gripper_160 name="Robotiq2f85Finger160" prefix="${prefix}" parent="${prefix}gripper_base" use_fake_hardware="$(arg use_fake_hardware)">
-      <origin xyz="0 0 0" rpy="0 0 0" />
-    </xacro:robotiq_gripper_160>
-
-    <!--- tcp frame-->
-    <joint name="${prefix}tool0_to_tcp" type="fixed">
-        <parent link="${prefix}tool0"/>
-        <child link="tcp"/>
-        <origin xyz="0 0 0.303" rpy="0 0 0"/>
-    </joint>
-    <link name="tcp"/>
-
-  </xacro:if>
-
-  <xacro:if value="${finger_type == 'custom_75'}">
-    <!-- Use the macro for 75mm fingers -->
-    <xacro:robotiq_gripper_75 name="Robotiq2f85Finger75" prefix="${prefix}" parent="${prefix}gripper_base" use_fake_hardware="$(arg use_fake_hardware)">
-      <origin xyz="0 0 0" rpy="0 0 0" />
-    </xacro:robotiq_gripper_75>
-
-    <!--- tcp frame-->
-    <joint name="${prefix}tool0_to_tcp" type="fixed">
-        <parent link="${prefix}tool0"/>
-        <child link="tcp"/>
-        <origin xyz="0 0 0.218" rpy="0 0 0"/>
-    </joint>
-    <link name="tcp"/>
-
-  </xacro:if>
 
   <xacro:if value="${finger_type == 'default'}">
     <!-- Use the macro for original fingers -->

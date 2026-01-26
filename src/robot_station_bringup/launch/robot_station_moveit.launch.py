@@ -27,7 +27,7 @@ def generate_launch_description():
     # Load the robot configuration
     moveit_config = (
         MoveItConfigsBuilder(
-            "station_ur_orbbec_robotiq2f85", package_name="robot_station_cell_moveit_config"
+            "station_ur_orbbec_robotiq2f85", package_name="robot_station_moveit_config"
         )
         .robot_description(mappings=launch_arguments) # optional: can be omitted to use default arguments
         .planning_pipelines(
