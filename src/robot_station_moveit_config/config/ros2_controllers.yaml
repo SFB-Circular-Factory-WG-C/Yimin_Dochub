@@ -30,4 +30,4 @@ scaled_joint_trajectory_controller:
       - velocity
 robotiq_2f_urcap_adapter:
   ros__parameters:
-    joint: right_outer_knuckle_joint
+    joint: finger_joint

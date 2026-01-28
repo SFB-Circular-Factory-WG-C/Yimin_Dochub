@@ -324,6 +324,7 @@ def launch_setup(context, *args, **kwargs):
                 controller_spawner_timeout,
             ]
             + inactive_flags,
+            prefix=["sleep 5 && "],
         )
 
     controller_spawner_names = [
@@ -350,6 +351,7 @@ def launch_setup(context, *args, **kwargs):
             controller_spawner_timeout,
         ],
         condition=IfCondition(activate_joint_controller),
+        prefix=["sleep 5 && "],
     )
     initial_joint_controller_spawner_stopped = Node(
         package="controller_manager",
@@ -363,6 +365,7 @@ def launch_setup(context, *args, **kwargs):
             "--inactive",
         ],
         condition=UnlessCondition(activate_joint_controller),
+        prefix=["sleep 5 && "],
     )
 
     nodes_to_start = [

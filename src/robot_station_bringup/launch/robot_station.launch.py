@@ -22,8 +22,11 @@ def generate_launch_description():
 
             Node(
                 package="robotiq_2f_urcap_adapter",
-                executable="robotiq_2f_adapter_node.py",
-                name="robotiq_2f_urcap_adapter",
+                executable="robotiq_2f_140_adapter_node.py",
+                name="robotiq_2f_140_urcap_adapter",
+                # executable="robotiq_2f_adapter_node.py",
+                # name="robotiq_2f_urcap_adapter",
+                
                 output="screen",
                 parameters = [{
                     "robot_ip": "172.23.253.44",
