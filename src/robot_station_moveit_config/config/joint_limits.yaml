@@ -9,20 +9,62 @@ default_acceleration_scaling_factor: 0.1
 # Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
 joint_limits:
   elbow_joint:
+    has_velocity_limits: true
+    max_velocity: 3.1415926535897931
     has_acceleration_limits: true
-    max_acceleration: 5.0
+    max_acceleration: 0.5
+  finger_joint:
+    has_velocity_limits: true
+    max_velocity: 2.0
+    has_acceleration_limits: true
+    max_acceleration: 0.5
+  left_inner_finger_joint:
+    has_velocity_limits: true
+    max_velocity: 2.0
+    has_acceleration_limits: true
+    max_acceleration: 0.5
+  left_inner_knuckle_joint:
+    has_velocity_limits: true
+    max_velocity: 2.0
+    has_acceleration_limits: true
+    max_acceleration: 0.5
+  right_inner_finger_joint:
+    has_velocity_limits: true
+    max_velocity: 2.0
+    has_acceleration_limits: true
+    max_acceleration: 0.5
+  right_inner_knuckle_joint:
+    has_velocity_limits: true
+    max_velocity: 2.0
+    has_acceleration_limits: true
+    max_acceleration: 0.5
+  right_outer_knuckle_joint:
+    has_velocity_limits: true
+    max_velocity: 2.0
+    has_acceleration_limits: true
+    max_acceleration: 0.5
   shoulder_lift_joint:
+    has_velocity_limits: true
+    max_velocity: 2.0943951023931953
     has_acceleration_limits: true
-    max_acceleration: 5.0
+    max_acceleration: 0.5
   shoulder_pan_joint:
+    has_velocity_limits: true
+    max_velocity: 2.0943951023931953
     has_acceleration_limits: true
-    max_acceleration: 5.0
+    max_acceleration: 0.5
   wrist_1_joint:
+    has_velocity_limits: true
+    max_velocity: 3.1415926535897931
     has_acceleration_limits: true
-    max_acceleration: 5.0
+    max_acceleration: 0.5
   wrist_2_joint:
+    has_velocity_limits: true
+    max_velocity: 3.1415926535897931
     has_acceleration_limits: true
-    max_acceleration: 5.0
+    max_acceleration: 0.5
   wrist_3_joint:
+    has_velocity_limits: true
+    max_velocity: 3.1415926535897931
     has_acceleration_limits: true
-    max_acceleration: 5.0
+    max_acceleration: 0.5

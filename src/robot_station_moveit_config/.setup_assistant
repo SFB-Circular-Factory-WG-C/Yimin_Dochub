@@ -5,9 +5,9 @@ moveit_setup_assistant_config:
   srdf:
     relative_path: config/station_ur_orbbec_robotiq2f85.srdf
   package_settings:
-    author_name: Yimin HU
+    author_name: Yimin Hu
     author_email: yimin.hu@student.kit.edu
-    generated_timestamp: 1768932841
+    generated_timestamp: 1769786422
   control_xacro:
     command:
       - position
