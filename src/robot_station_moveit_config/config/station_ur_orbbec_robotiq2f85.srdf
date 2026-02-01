@@ -13,7 +13,6 @@
         <chain base_link="base_link" tip_link="tcp"/>
     </group>
     <group name="gripper">
-        <link name="robotiq_base_link"/>
         <link name="robotiq_140_base_link"/>
         <link name="left_outer_knuckle"/>
         <link name="left_outer_finger"/>
@@ -55,7 +54,7 @@
         <joint name="finger_joint" value="0"/>
     </group_state>
     <group_state name="closed" group="gripper">
-        <joint name="finger_joint" value="0.7"/>
+        <joint name="finger_joint" value="0.6"/>
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="robotiq_2f_140" parent_link="flange" group="gripper" parent_group="manipulator"/>
