@@ -1,6 +1,6 @@
 <launch>
     <let name="urdf_path"
-        value="$(find-pkg-share robot_station_description)/urdf/station_ur_orbbec_robotiq2f85.urdf.xacro" />
+        value="$(find-pkg-share robot_station_description)/urdf/station_ur_orbbec_robotiq2f140.urdf.xacro" />
 
     <let name="rviz_config_path"
         value="$(find-pkg-share robot_station_description)/rviz/view_robot.rviz" />

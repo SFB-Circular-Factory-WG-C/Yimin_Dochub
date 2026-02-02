@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<robot name="station_ur_orbbec_robotiq2f85" xmlns:xacro="http://wiki.ros.org/xacro">
+<robot name="station_ur_orbbec_robotiq2f140" xmlns:xacro="http://wiki.ros.org/xacro">
   
     <!-- Import macros -->
     <xacro:include filename="$(find robot_station_description)/urdf/common_properties.urdf"/>
     <xacro:include filename="$(find robot_station_description)/urdf/station_800x440_bosch_macro.urdf.xacro"/>
-    <xacro:include filename="$(find robot_station_description)/urdf/ur_orbbec_robotiq2f85_macro.urdf.xacro"/>
+    <xacro:include filename="$(find robot_station_description)/urdf/ur_orbbec_robotiq2f140_macro.urdf.xacro"/>
     <xacro:include filename="$(find robot_station_description)/urdf/messzelle_macro.urdf.xacro"/>
     <!-- <xacro:include filename="$(find ifl_air_description)/urdf/robotertisch_1520x900_macro.urdf.xacro"/> -->
     <!-- <xacro:include filename="$(find ifl_air_description)/urdf/robotertisch_kameraaufsatz_macro.urdf.xacro"/> -->

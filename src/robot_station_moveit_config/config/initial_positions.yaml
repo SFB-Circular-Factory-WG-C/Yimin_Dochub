@@ -1,4 +1,4 @@
-# Default initial positions for station_ur_orbbec_robotiq2f85's ros2_control fake system
+# Default initial positions for station_ur_orbbec_robotiq2f140's ros2_control fake system
 
 initial_positions:
   elbow_joint: 0

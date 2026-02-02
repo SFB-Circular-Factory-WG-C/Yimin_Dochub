@@ -50,7 +50,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "description_file",
-            default_value="station_ur_orbbec_robotiq2f85.urdf.xacro",
+            default_value="station_ur_orbbec_robotiq2f140.urdf.xacro",
             description="URDF/XACRO description file with the robot.",
         )
     )
