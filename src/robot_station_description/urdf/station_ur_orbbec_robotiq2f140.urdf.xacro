@@ -21,7 +21,7 @@
     <xacro:robot_station_800x440 prefix="" parent="world" child="table_mount_link"/>
     
     <xacro:ur_orbbec_robotiq prefix="" parent="table_mount_link" finger_type="default" mount_orbbec="true">
-        <origin xyz="0 0 0" rpy="0 0 ${pi/2}"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
     </xacro:ur_orbbec_robotiq>
 
     <xacro:messzelle_env prefix="" parent="world"/>
