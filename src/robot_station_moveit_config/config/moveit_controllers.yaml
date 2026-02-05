@@ -24,3 +24,4 @@ moveit_simple_controller_manager:
       - finger_joint
     action_ns: gripper_command
     default: true
+    max_effort: 100.0

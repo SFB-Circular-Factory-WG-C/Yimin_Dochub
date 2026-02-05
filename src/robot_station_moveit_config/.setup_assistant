@@ -1,25 +1,10 @@
 moveit_setup_assistant_config:
   urdf:
     package: robot_station_description
-    relative_path: urdf/station_ur_orbbec_robotiq2f85.urdf.xacro
+    relative_path: urdf/station_ur_orbbec_robotiq2f140.urdf.xacro
   srdf:
-    relative_path: config/station_ur_orbbec_robotiq2f85.srdf
+    relative_path: config/station_ur_orbbec_robotiq2f140.srdf
   package_settings:
     author_name: Yimin Hu
     author_email: yimin.hu@student.kit.edu
-    generated_timestamp: 1769786422
-  control_xacro:
-    command:
-      - position
-    state:
-      - position
-      - velocity
-  modified_urdf:
-    xacros:
-      - control_xacro
-  control_xacro:
-    command:
-      - position
-    state:
-      - position
-      - velocity
+    generated_timestamp: 1770294197
