@@ -44,7 +44,7 @@ def generate_launch_description():
                 launch_arguments={
                     'launch_rviz': 'true',
                     'description_package': 'robot_station_description',
-                    'description_file': 'station_ur_orbbec_robotiq2f85.urdf.xacro',
+                    'description_file': 'station_ur_orbbec_robotiq2f140.urdf.xacro',
                 }.items()
             )
         ]

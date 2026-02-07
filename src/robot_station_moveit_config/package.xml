@@ -4,7 +4,7 @@
   <name>robot_station_moveit_config</name>
   <version>0.3.0</version>
   <description>
-     An automatically generated package with all the configuration and launch files for using the station_ur_orbbec_robotiq2f85 with the MoveIt Motion Planning Framework
+     An automatically generated package with all the configuration and launch files for using the station_ur_orbbec_robotiq2f140 with the MoveIt Motion Planning Framework
   </description>
   <maintainer email="yimin.hu@student.kit.edu">Yimin Hu</maintainer>
 
@@ -43,7 +43,6 @@
   <exec_depend>rviz_default_plugins</exec_depend>
   <exec_depend>tf2_ros</exec_depend>
   <exec_depend>warehouse_ros_mongo</exec_depend>
-  <exec_depend>xacro</exec_depend>
 
 
   <export>
