@@ -4,6 +4,7 @@
 
     <!-- Import station_ur_orbbec_robotiq2f140 urdf file -->
     <xacro:include filename="$(find robot_station_description)/urdf/station_ur_orbbec_robotiq2f140.urdf.xacro" />
+
     <!-- Import control_xacro -->
     <xacro:include filename="station_ur_orbbec_robotiq2f140.ros2_control.xacro" />
 
