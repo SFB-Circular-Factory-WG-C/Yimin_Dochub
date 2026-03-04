@@ -29,6 +29,7 @@ sudo apt install ros-humble-ros-gazebo
 sudo apt install ros-humble-ros2-control ros-humble-ros2-controllers
 sudo apt install ros-humble-rmw-cyclonedds-cpp
 sudo apt install ros-humble-moveit
+sudo apt install ros-humble-orbbec-camera ros-humble-orbbec-description
 
 source /opt/ros/humble/setup.bash
 ```
@@ -120,32 +121,55 @@ ros2 launch robot_station_bringup robot_station_moveit.launch.py
 ```
 - On the Control Panel of Universal Roboter
     - Initialize and start the robot
-    - Make sure ``URCaps`` and ``External COntrol`` are installed
+    - Make sure ``URCaps`` and ``External Control`` are installed
     - Set the Host IP in ``External Control`` (In this case the laptop)
         - ``Installation`` - ``URCaps`` - ``External Control``
     - Start ``URCaps``
         - ``Program`` - ``URCaps`` - ``External Control`` - Bottom right corner ``Start`` Icon
 
 **Camera Configuration**
-- Connect the ``Orbbec Femto Mega Camera`` to the laptop via USB-C Cable
+- Connect the ``Orbbec Femto Mega Camera`` to the laptop via USB-C Cable (or power the camera by PoE and communicate with it directly via network)
+- For test purpose we can use **Orbbec Viewer** downloaded from [link](https://github.com/orbbec/OrbbecSDK/releases)
+```bash
+# For test purpose
+Orbbecviewer
+```
+- Orbbec also provides a SDK for ROS2([link](https://github.com/orbbec/OrbbecSDK_ROS2)), which has already been installed above. It publishes various data stream to different topics in ROS2. We can run the node by:
+```bash
+# Terminal 4
+# Scenario 1: via USB-C cable
+ros2 launch orbbec_camera femto_mega.launch.py enable_colored_point_cloud:=true
+# Scenario 2: via network
+ros2 launch orbbec_camera femto_mega.launch.py enable_colored_point_cloud:=true net_device_ip:=<IP Address> net_device_port:=<port number, default: 8090>
+```
 
     
 ## How it works?
+### Joint state publisher
 ![rqt_graph](Resources/rqt_graph_mqtt.png)
 - The movement of joints in Rviz depends on the data from the topic /joint_states
 - Data from the MQTT broker is converted to translation data to the corresponding joint before being published to the topic /joint_states_door and /joint_states_window
 - Another node called "joint_state_merger" will merge the data from these topics and publish the combined data together with joint states of the UR robot to /joint_states
 - A demo video can be found in /Resources/demo1.mp4
+- The TF tree diagram can be found [here](/Resources/tf_tree.pdf)
+
+### Data Pipeline
+The final purpose of this project is the reliable pick-and-place of an angle grinder. This requires a data pipeline from perception to execution.
+![data_pipeline](Resources/vMF_data_pipeline.png)
+
 
 
 ## Problems so far
 1. Although the door and the window can move according to their state from the MQTT broker, their models (visual or collison?) will leave a "shadow" in their previous position in RViz, which may cause trajectory planning failure.
 1. Even if the "shadow" problem is solved, the collision model of the ct machine is still a cube (solid, not hollow), which leads to the same problem as above.
+1. The gripper has very tiny offset to planned pose, which could lead to collision to the desk and grasp failure
 
 
 ## What to do next?
 1. Check whether the "shadow" is collision or just visual element.
-
+1. Fine-tune the dimension of objects and their geometry relationships to ensure the perception and grasping work reliably.
+1. Give the robot an initial position.
+1. Try to combine single steps in the pipeline and turn it into a shell script.
 
 
 
