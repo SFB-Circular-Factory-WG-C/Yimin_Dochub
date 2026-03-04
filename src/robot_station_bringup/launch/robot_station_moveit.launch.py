@@ -78,20 +78,20 @@ def generate_launch_description():
 
     launch_joy_arg = DeclareLaunchArgument('launch_joy', default_value='false')
 
-    # # arm_api2 moveit wrapper
-    # moveit_wrapper = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource([
-    #         PathJoinSubstitution([
-    #             FindPackageShare("arm_api2"), 
-    #             'launch',
-    #             'moveit2_iface.launch.py'
-    #         ])
-    #     ]),
-    #     launch_arguments={
-    #         'robot_name': 'ur',
-    #         'launch_joy': LaunchConfiguration("launch_joy"),
-    #     }.items()
-    # )
+    # arm_api2 moveit wrapper
+    moveit_wrapper = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare("arm_api2"), 
+                'launch',
+                'moveit2_iface.launch.py'
+            ])
+        ]),
+        launch_arguments={
+            'robot_name': 'ur',
+            'launch_joy': LaunchConfiguration("launch_joy"),
+        }.items()
+    )
 
 
 
@@ -100,5 +100,5 @@ def generate_launch_description():
         launch_joy_arg,
         run_move_group_node,
         rviz_node,
-        #moveit_wrapper,
+        moveit_wrapper,
     ])
