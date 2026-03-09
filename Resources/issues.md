@@ -14,7 +14,7 @@
 - e.g. here pcd 6072 th=0.9 without bounds
 ![img_2-3](issues_260311/img_2-3.png)
 ![img_2-4](issues_260311/img_2-4.png)
-    - The inference above took **TODO seconds**
+    - The inference above took ~100s
     - Even if the threshold was set to 0.9, the result still fell outside of the item.
 - Other results
     - a. Pointcloud without center shift delievered better results
