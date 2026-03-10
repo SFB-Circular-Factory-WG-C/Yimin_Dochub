@@ -1,11 +1,14 @@
 # Issues
 ## 11.03.2026 Biweekly Meetup
-1. The gripper went to a deeper z-position, which then led to the crash with the desk and thus an emergency stop.
+### 1. The gripper went to a deeper z-position, which then led to the crash with the desk and thus an emergency stop.
 - The pose was given by the vMF-Algorithm.
-- **TODO** example here pcd 9274 th=0.8 w/o bounds. **Photos from different perspectives or show this position in real**
+- e.g. here pcd 9274 th=0.8 w/o bounds.
+- Note that I moved the table a bit so that they did not really crash, but as can be seen from the pictures, the gripper finger was already lower than the table plane. 
+![img_2-13](issues_260311/img_2-13.png)
+![img_2-14](issues_260311/img_2-14.png)
 - Due to the bigger gripper? Any solution to shift the gripper a bit in approach direction?
-
-2. The chosen pose was not always ideal and usable, even if it was the same object in different position.
+---
+### 2. The chosen pose was not always ideal and usable, even if it was the same object in different position.
 - e.g. here pcd 6177 th=0.9 without bounds
 ![img_2-1](issues_260311/img_2-1.png)
 ![img_2-2](issues_260311/img_2-2.png)
@@ -18,15 +21,20 @@
     - Even if the threshold was set to 0.9, the result still fell outside of the item.
 - Other results
     - a. Pointcloud without center shift delievered better results
-    - The pose is based on the link "base_link", not an extra link e.g. "pcd_center" , because the shift of the coordination axis of the pointcloud will require extra effort in caliberation but at the same time the result would not be any better.
-    - e.g. here pcd 6072 th = 0.8 w/o bounds vs th = 0.0 w/ bounds
+    - The pose is based on the link "base_link", not an extra link e.g. "pcd_center" , because the shift of the coordination axis of the pointcloud will require extra effort in caliberation, while the result would not be any better.
+    - e.g. Scenario 1 pcd 6072 th = 0.8 w/o bounds
+        - Result: Inference success
+        - The inference above took ~300s
     ![img_2-1](issues_260311/img_2-1.png)
     ![img_2-5](issues_260311/img_2-5.png)
     ![img_2-6](issues_260311/img_2-6.png)
-        - The inference above took ~300s
+        
+    - e.g. Scenario 2  same pcd th = 0.0 w/ bounds
+        - Result: Inference failed.
+        - There was even no estimated pose for the point cloud after shifting when the threshold was set to 0.0
     ![img_2-7](issues_260311/img_2-7.png)
     ![img_2-8](issues_260311/img_2-8.png)
-        - There was even no estimated pose for the point cloud after shifting when the threshold was set to 0.0 
+         
     - b. Resolution of the point cloud not high enough?
     - e.g. Here snap a new pcd for front high th = 0.8 w/o bounds with 2400000 points and compare with the previous pcd with 40000 points.
         - Example 1
