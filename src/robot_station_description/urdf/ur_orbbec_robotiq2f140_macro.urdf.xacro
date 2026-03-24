@@ -137,7 +137,7 @@
     <joint name="${prefix}tool0_to_tcp" type="fixed">
         <parent link="${prefix}tool0"/>
         <child link="tcp"/>
-        <origin xyz="0 0 0.18" rpy="0 0 0"/>
+        <origin xyz="0 0 0.23" rpy="0 0 0"/>
     </joint>
     <link name="tcp"/>
 
