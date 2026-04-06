@@ -6,17 +6,17 @@
         <visual>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry>
-            <box size="0.8 0.44 0.848"/>
+            <box size="0.8 0.44 0.859"/>
           </geometry>
           <material name="grey"/>
         </visual>
         <collision>
           <origin xyz="0 0 0" rpy="0 0 0"/>
           <geometry>
-            <box size="0.8 0.44 0.848"/>
+            <box size="0.8 0.44 0.859"/>
           </geometry>
         </collision>
-        <xacro:box_inertia m="150.0" x="0.8" y="0.44" z="0.848" o_xyz="0 0 0" o_rpy="0 0 0"/>
+        <xacro:box_inertia m="150.0" x="0.8" y="0.44" z="0.859" o_xyz="0 0 0" o_rpy="0 0 0"/>
     </link>
 
 
@@ -24,7 +24,7 @@
       <!-- The parent link must be read from the robot model it is attached to. -->
       <parent link="${parent}"/>
       <child link="${prefix}robot_station_800x440_link"/>
-      <origin xyz="1.445 2.712 0.424" rpy="0 0 0"/>
+      <origin xyz="1.445 2.712 0.4295" rpy="0 0 0"/>
     </joint>  
 
     <link name="${child}"/>
@@ -32,7 +32,7 @@
     <joint name="${prefix}table_mount_joint" type="fixed">
       <parent link="${prefix}robot_station_800x440_link"/>
       <child link="${child}"/>
-      <origin xyz="0 0 0.424" rpy="0 0 0"/>
+      <origin xyz="0 0 0.4295" rpy="0 0 0"/>
     </joint>
     
 

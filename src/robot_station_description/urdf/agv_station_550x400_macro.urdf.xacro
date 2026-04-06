@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="agv_station_550x400" params="prefix parent">
+
+    <link name="${prefix}station_agv_link">
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <geometry>
+            <box size="0.55 0.4 0.945"/>
+          </geometry>
+          <material name="green"/>
+        </visual>
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <geometry>
+            <box size="0.55 0.4 0.945"/>
+          </geometry>
+        </collision>
+        <xacro:box_inertia m="10.0" x="0.55" y="0.4" z="0.945" o_xyz="0 0 0" o_rpy="0 0 0"/>
+    </link>
+
+
+    <joint name="${prefix}agv_station_base_joint" type="fixed">
+      <!-- The parent link must be read from the robot model it is attached to. -->
+      <parent link="${parent}"/>
+      <child link="${prefix}station_agv_link"/>
+      <origin xyz="1.445 3.412 0.4725" rpy="0 0 0"/>
+    </joint>  
+
+    <link name="${prefix}agv_table_center_link"/>
+
+    <joint name="${prefix}agv_table_center_joint" type="fixed">
+      <parent link="${prefix}station_agv_link"/>
+      <child link="${prefix}agv_table_center_link"/>
+      <origin xyz="0 0 0.4875" rpy="0 0 0"/>
+    </joint>
+    
+
+  </xacro:macro>
+</robot>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:macro name="orbbec_femto_mega" params="prefix parent rotation:=^|${0.0}">
-
+    
     <joint name="${prefix}orbbec_femto_mega_joint" type="fixed">
       <!-- The parent link must be read from the robot model it is attached to. -->
       <parent link="${parent}"/>
@@ -28,6 +28,15 @@
           <inertia ixx="2.633e-3" ixy="-2.09855e-4" ixz="-3.762447e-3" iyy="3.021e-3" iyz="-6.1756107e-2" izz="4.861e-4" />
         </inertial>
     </link>
+
+    <link name="${prefix}camera_link" />
+    
+    <joint name="${prefix}camera_joint" type="fixed">
+      <!-- The parent link must be read from the robot model it is attached to. -->
+      <parent link="${prefix}orbbec_femto_mega_link"/>
+      <child link="${prefix}camera_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
 
   </xacro:macro>
 </robot>
