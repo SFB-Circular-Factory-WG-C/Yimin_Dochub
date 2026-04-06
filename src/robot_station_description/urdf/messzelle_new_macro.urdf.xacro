@@ -115,6 +115,7 @@
             <collision>
                 <mesh filename="package://robot_station_description/meshes/collision/ct_load_block.stl"
                 scale="0.001 0.001 0.001" />
+                <origin xyz="0 0 0" rpy="0 0 0" />
             </collision>
         </link>
 

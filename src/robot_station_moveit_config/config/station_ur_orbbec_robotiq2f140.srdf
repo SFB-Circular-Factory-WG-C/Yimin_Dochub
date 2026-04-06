@@ -62,7 +62,7 @@
         <joint name="shoulder_pan_joint" value="-0.23183"/>
         <joint name="wrist_1_joint" value="0.89545"/>
         <joint name="wrist_2_joint" value="1.22664"/>
-        <joint name="wrist_3_joint" value="-0.23183"/>
+        <joint name="wrist_3_joint" value="3.15000"/>
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="robotiq_2f_140" parent_link="flange" group="gripper" parent_group="manipulator"/>
