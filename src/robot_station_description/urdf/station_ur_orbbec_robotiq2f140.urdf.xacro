@@ -6,7 +6,8 @@
     <xacro:include filename="$(find robot_station_description)/urdf/station_800x440_bosch_macro.urdf.xacro"/>
     <xacro:include filename="$(find robot_station_description)/urdf/agv_station_550x400_macro.urdf.xacro"/>
     <xacro:include filename="$(find robot_station_description)/urdf/ur_orbbec_robotiq2f140_macro.urdf.xacro"/>
-    <xacro:include filename="$(find robot_station_description)/urdf/messzelle_macro.urdf.xacro"/>
+    <!-- <xacro:include filename="$(find robot_station_description)/urdf/messzelle_macro.urdf.xacro"/> -->
+    <xacro:include filename="$(find robot_station_description)/urdf/messzelle_new_macro.urdf.xacro"/>
     <!-- <xacro:include filename="$(find ifl_air_description)/urdf/robotertisch_1520x900_macro.urdf.xacro"/> -->
     <!-- <xacro:include filename="$(find ifl_air_description)/urdf/robotertisch_kameraaufsatz_macro.urdf.xacro"/> -->
     <!-- <xacro:include filename="$(find ifl_air_description)/urdf/robotertisch_800x1400_macro.urdf.xacro"/> -->
@@ -27,6 +28,7 @@
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </xacro:ur_orbbec_robotiq>
 
-    <xacro:messzelle_env prefix="" parent="world"/>
+    <!-- <xacro:messzelle_env prefix="" parent="world"/> -->
+    <xacro:messzelle_env_new prefix="" parent="world"/>
 
 </robot>

@@ -1,0 +1,238 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:macro name="messzelle_env_new" params="prefix parent">
+        <link name="${prefix}ct_base_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://robot_station_description/meshes/visual/ct_no_door_no_deck_simplified.stl" />
+                </geometry>
+                <material name="white" />
+                <origin xyz="0 0 0" rpy="0 0 0" />
+            </visual>
+
+            <collision>
+                <geometry>
+                    <box size="1.755 0.1 2.445" />
+                </geometry>
+                <origin xyz="0.9625 0.87 0" rpy="0 0 0" />
+            </collision>
+
+            <collision>
+                <geometry>
+                    <box size="0.945 0.1 2.445" />
+                </geometry>
+                <origin xyz="-1.3775 0.87 0" rpy="0 0 0" />
+            </collision>
+
+            <collision>
+                <geometry>
+                    <box size="1.0 0.1 0.305" />
+                </geometry>
+                <origin xyz="-0.405 0.87 1.07" rpy="0 0 0" />
+            </collision>
+
+            <collision>
+                <geometry>
+                    <box size="1.0 0.1 0.3" />
+                </geometry>
+                <origin xyz="-0.405 0.87 -1.0725" rpy="0 0 0" />
+            </collision>
+        </link>
+
+        <link name="${prefix}ct_left_door_link">
+            <visual>
+                <geometry>
+                    <box size="0.5 0.02 1.84" />
+                </geometry>
+                <material name="grey" />
+                <origin xyz="0.25 0 0" rpy="0 0 0" />
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="0.5 0.02 1.84" />
+                </geometry>
+                <origin xyz="0.25 0 0" rpy="0 0 0" />
+            </collision>
+        </link>
+
+        <link name="${prefix}ct_right_door_link">
+            <visual>
+                <geometry>
+                    <box size="0.5 0.02 1.84" />
+                </geometry>
+                <material name="grey" />
+                <origin xyz="-0.25 0 0" rpy="0 0 0" />
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="0.5 0.02 1.84" />
+                </geometry>
+                <origin xyz="-0.25 0 0" rpy="0 0 0" />
+            </collision>
+        </link>
+
+        <link name="${prefix}ct_load_workbench_link">
+            <visual>
+                <geometry>
+                    <box size="0.345 0.46 0.30" />
+                </geometry>
+                <material name="grey" />
+                <origin xyz="0 0 0" rpy="0 0 0" />
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="0.345 0.46 0.30" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+            </collision>
+        </link>
+
+        <link name="${prefix}ct_load_disk_link">
+            <visual>
+                <geometry>
+                    <cylinder radius="0.15" length="0.05" />
+                </geometry>
+                <material name="grey" />
+                <origin xyz="0 0 0" rpy="0 0 0" />
+            </visual>
+            <collision>
+                <geometry>
+                    <cylinder radius="0.15" length="0.05" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+            </collision>
+        </link>
+
+        <link name="${prefix}ct_load_block_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://robot_station_description/meshes/visual/ct_load_block.stl" 
+                    scale="0.001 0.001 0.001" />
+                </geometry>
+                <material name="grey" />
+                <origin xyz="0 0 0" rpy="0 0 0" />
+            </visual>
+            <collision>
+                <mesh filename="package://robot_station_description/meshes/collision/ct_load_block.stl"
+                scale="0.001 0.001 0.001" />
+            </collision>
+        </link>
+
+        <link name="${prefix}placement_link" />
+
+        <joint name="${prefix}ct_machine_joint" type="fixed">
+            <parent link="${parent}"/>
+            <child link="${prefix}ct_base_link"/>
+            <origin xyz="1.85 0.92 1.2225" rpy="0 0 0" />
+        </joint>
+
+        <joint name="${prefix}ct_left_door_joint" type="prismatic">
+            <parent link="${prefix}ct_base_link"/>
+            <child link="${prefix}ct_left_door_link"/>
+            <origin xyz="-0.405 0.92 -0.0025" rpy="0 0 0" />
+            <axis xyz="1 0 0"/>
+            <limit lower="0" upper="0.5" effort="1000" velocity="1.0"/>
+        </joint>
+
+        <joint name="${prefix}ct_right_door_joint" type="prismatic">
+            <parent link="${prefix}ct_base_link"/>
+            <child link="${prefix}ct_right_door_link"/>
+            <origin xyz="-0.405 0.92 -0.0025" rpy="0 0 0" />
+            <axis xyz="-1 0 0"/>
+            <limit lower="0" upper="0.5" effort="1000" velocity="1.0"/>
+            <mimic joint="${prefix}ct_left_door_joint" multiplier="1.0" offset="0.0" />
+        </joint>
+
+        <joint name="${prefix}ct_load_workbench_joint" type="fixed">
+            <parent link="${prefix}ct_base_link"/>
+            <child link="${prefix}ct_load_workbench_link"/>
+            <origin xyz="-0.405 0.49 -0.3655" rpy="0 0 0" />
+        </joint>
+
+        <joint name="${prefix}ct_load_disk_joint" type="fixed">
+            <parent link="${prefix}ct_load_workbench_link"/>
+            <child link="${prefix}ct_load_disk_link"/>
+            <origin xyz="0.0 -0.05 0.175" rpy="0 0 0" />
+        </joint>
+
+        <joint name="${prefix}ct_load_block_joint" type="fixed">
+            <parent link="${prefix}ct_load_disk_link"/>
+            <child link="${prefix}ct_load_block_link"/>
+            <origin xyz="0.0 -0.15 0.025" rpy="0 0 0" />
+        </joint>
+
+        <joint name="${prefix}placement_joint" type="fixed">
+            <parent link="${prefix}ct_load_block_link"/>
+            <child link="${prefix}placement_link"/>
+            <origin xyz="0.0 0.15 0.17" rpy="0 0 0" />
+        </joint>
+
+        <link name="${prefix}wall1_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://robot_station_description/meshes/visual/wall1_no_window_simplified.stl" />
+                </geometry>
+                <material name="white" />
+                <origin xyz="0 0 0" rpy="0 0 0" />
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://robot_station_description/meshes/collision/wall1_no_window_simplified.stl" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+            </collision>
+        </link>
+
+        <link name="${prefix}slide_window_link">
+            <visual>
+                <geometry>
+                    <box size="1.45 0.1 1.0" />
+                </geometry>
+                <material name="glass" />
+                <origin xyz="0 0 0" rpy="0 0 ${pi/2.0}" />
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="1.45 0.1 1.0" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 ${pi/2.0}" />
+            </collision>
+        </link>
+
+        <joint name="${prefix}wall1_joint" type="fixed">
+            <parent link="${parent}"/>
+            <child link="${prefix}wall1_link"/>
+            <origin xyz="-0.05 2.4325 1.825" rpy="0 0 0" />
+        </joint>
+
+        <joint name="${prefix}slide_window_joint" type="prismatic">
+            <parent link="${parent}"/>
+            <child link="${prefix}slide_window_link"/>
+            <origin xyz="0.0 2.712 1.5" rpy="0 0 0" />
+            <axis xyz="0 0 1"/>
+            <limit lower="0" upper="1.0" effort="1000" velocity="1.0"/>
+        </joint>
+
+        <link name="${prefix}table_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://robot_station_description/meshes/visual/table_simplified.stl"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <material name="white"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://robot_station_description/meshes/visual/table_simplified.stl"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+            </collision>
+        </link>
+
+        <joint name="${prefix}table_joint" type="fixed">
+            <parent link="${parent}"/>
+            <child link="${prefix}table_link"/>
+            <origin xyz="2.95 2.34 0.5" rpy="0 0 0" />
+        </joint>
+    </xacro:macro>
+</robot>
