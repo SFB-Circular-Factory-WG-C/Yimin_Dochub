@@ -226,3 +226,9 @@ src/Universal_Robots_ROS2_Driver/
 src/Universal_Robots_ROS2_Gazebo_Simulation/
 src/Universal_Robots_ROS2_Tutorials/
 src/vmf/
+src/vMF-Contact/
+
+src/robot_station_description_backup/
+src/robot_station_moveit_config_backup/
+
+rqt*
