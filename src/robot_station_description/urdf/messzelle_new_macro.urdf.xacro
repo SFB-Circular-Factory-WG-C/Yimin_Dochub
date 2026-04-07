@@ -166,7 +166,7 @@
         <joint name="${prefix}placement_joint" type="fixed">
             <parent link="${prefix}ct_load_block_link"/>
             <child link="${prefix}placement_link"/>
-            <origin xyz="0.0 0.15 0.17" rpy="0 0 0" />
+            <origin xyz="0.0 0.15 0.17" rpy="0 -${pi/4} ${3*pi/2}" />
         </joint>
 
         <link name="${prefix}wall1_link">
