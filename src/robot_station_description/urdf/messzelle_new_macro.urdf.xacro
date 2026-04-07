@@ -109,12 +109,13 @@
                     <mesh filename="package://robot_station_description/meshes/visual/ct_load_block.stl" 
                     scale="0.001 0.001 0.001" />
                 </geometry>
-                <material name="grey" />
                 <origin xyz="0 0 0" rpy="0 0 0" />
             </visual>
             <collision>
-                <mesh filename="package://robot_station_description/meshes/collision/ct_load_block.stl"
-                scale="0.001 0.001 0.001" />
+                <geometry>
+                    <mesh filename="package://robot_station_description/meshes/collision/ct_load_block.stl"
+                    scale="0.001 0.001 0.001" />
+                </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0" />
             </collision>
         </link>
