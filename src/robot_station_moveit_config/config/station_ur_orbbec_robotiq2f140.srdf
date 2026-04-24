@@ -62,7 +62,15 @@
         <joint name="shoulder_pan_joint" value="-0.23183"/>
         <joint name="wrist_1_joint" value="0.89545"/>
         <joint name="wrist_2_joint" value="1.22664"/>
-        <joint name="wrist_3_joint" value="3.15000"/>
+        <joint name="wrist_3_joint" value="3.15"/>
+    </group_state>
+    <group_state name="pose4" group="manipulator">
+        <joint name="elbow_joint" value="-1.56742"/>
+        <joint name="shoulder_lift_joint" value="-1.33859"/>
+        <joint name="shoulder_pan_joint" value="0.02792"/>
+        <joint name="wrist_1_joint" value="-1.72536"/>
+        <joint name="wrist_2_joint" value="1.64869"/>
+        <joint name="wrist_3_joint" value="3.11717"/>
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="robotiq_2f_140" parent_link="flange" group="gripper" parent_group="manipulator"/>
@@ -117,7 +125,6 @@
     <disable_collisions link1="ct_load_disk_link" link2="upper_arm_link" reason="Never"/>
     <disable_collisions link1="ct_load_disk_link" link2="wall1_link" reason="Never"/>
     <disable_collisions link1="ct_load_workbench_link" link2="ct_right_door_link" reason="Never"/>
-    <disable_collisions link1="ct_load_workbench_link" link2="forearm_link" reason="Default"/>
     <disable_collisions link1="ct_load_workbench_link" link2="robot_station_800x440_link" reason="Never"/>
     <disable_collisions link1="ct_load_workbench_link" link2="shoulder_link" reason="Never"/>
     <disable_collisions link1="ct_load_workbench_link" link2="slide_window_link" reason="Never"/>
@@ -125,7 +132,6 @@
     <disable_collisions link1="ct_load_workbench_link" link2="table_link" reason="Never"/>
     <disable_collisions link1="ct_load_workbench_link" link2="upper_arm_link" reason="Never"/>
     <disable_collisions link1="ct_load_workbench_link" link2="wall1_link" reason="Never"/>
-    <disable_collisions link1="ct_load_workbench_link" link2="wrist_1_link" reason="Default"/>
     <disable_collisions link1="ct_load_workbench_link" link2="wrist_2_link" reason="Default"/>
     <disable_collisions link1="ct_right_door_link" link2="forearm_link" reason="Default"/>
     <disable_collisions link1="ct_right_door_link" link2="robot_station_800x440_link" reason="Never"/>
@@ -148,9 +154,7 @@
     <disable_collisions link1="dual_camera_mount_link_pt1" link2="right_outer_finger" reason="Never"/>
     <disable_collisions link1="dual_camera_mount_link_pt1" link2="right_outer_knuckle" reason="Never"/>
     <disable_collisions link1="dual_camera_mount_link_pt1" link2="robotiq_140_base_link" reason="Never"/>
-    <disable_collisions link1="dual_camera_mount_link_pt1" link2="slide_window_link" reason="Never"/>
     <disable_collisions link1="dual_camera_mount_link_pt1" link2="ur_to_robotiq_link" reason="Adjacent"/>
-    <disable_collisions link1="dual_camera_mount_link_pt1" link2="wall1_link" reason="Never"/>
     <disable_collisions link1="dual_camera_mount_link_pt1" link2="wrist_1_link" reason="Never"/>
     <disable_collisions link1="dual_camera_mount_link_pt1" link2="wrist_2_link" reason="Never"/>
     <disable_collisions link1="dual_camera_mount_link_pt1" link2="wrist_3_link" reason="Adjacent"/>
@@ -166,6 +170,7 @@
     <disable_collisions link1="dual_camera_mount_link_pt2" link2="right_outer_finger" reason="Never"/>
     <disable_collisions link1="dual_camera_mount_link_pt2" link2="right_outer_knuckle" reason="Never"/>
     <disable_collisions link1="dual_camera_mount_link_pt2" link2="robotiq_140_base_link" reason="Never"/>
+    <disable_collisions link1="dual_camera_mount_link_pt2" link2="slide_window_link" reason="Never"/>
     <disable_collisions link1="dual_camera_mount_link_pt2" link2="ur_to_robotiq_link" reason="Never"/>
     <disable_collisions link1="dual_camera_mount_link_pt2" link2="wrist_1_link" reason="Never"/>
     <disable_collisions link1="dual_camera_mount_link_pt2" link2="wrist_2_link" reason="Never"/>
@@ -199,7 +204,6 @@
     <disable_collisions link1="left_inner_finger_pad" link2="right_outer_finger" reason="Never"/>
     <disable_collisions link1="left_inner_finger_pad" link2="right_outer_knuckle" reason="Never"/>
     <disable_collisions link1="left_inner_finger_pad" link2="robotiq_140_base_link" reason="Never"/>
-    <disable_collisions link1="left_inner_finger_pad" link2="slide_window_link" reason="Never"/>
     <disable_collisions link1="left_inner_finger_pad" link2="ur_to_robotiq_link" reason="Never"/>
     <disable_collisions link1="left_inner_finger_pad" link2="wrist_1_link" reason="Never"/>
     <disable_collisions link1="left_inner_finger_pad" link2="wrist_2_link" reason="Never"/>
@@ -250,6 +254,7 @@
     <disable_collisions link1="orbbec_femto_mega_link" link2="right_outer_finger" reason="Never"/>
     <disable_collisions link1="orbbec_femto_mega_link" link2="right_outer_knuckle" reason="Never"/>
     <disable_collisions link1="orbbec_femto_mega_link" link2="robotiq_140_base_link" reason="Never"/>
+    <disable_collisions link1="orbbec_femto_mega_link" link2="slide_window_link" reason="Never"/>
     <disable_collisions link1="orbbec_femto_mega_link" link2="ur_to_robotiq_link" reason="Never"/>
     <disable_collisions link1="orbbec_femto_mega_link" link2="wrist_2_link" reason="Never"/>
     <disable_collisions link1="orbbec_femto_mega_link" link2="wrist_3_link" reason="Never"/>
@@ -258,7 +263,6 @@
     <disable_collisions link1="right_inner_finger" link2="right_outer_finger" reason="Adjacent"/>
     <disable_collisions link1="right_inner_finger" link2="right_outer_knuckle" reason="Never"/>
     <disable_collisions link1="right_inner_finger" link2="robotiq_140_base_link" reason="Never"/>
-    <disable_collisions link1="right_inner_finger" link2="slide_window_link" reason="Never"/>
     <disable_collisions link1="right_inner_finger" link2="ur_to_robotiq_link" reason="Never"/>
     <disable_collisions link1="right_inner_finger" link2="wrist_1_link" reason="Never"/>
     <disable_collisions link1="right_inner_finger" link2="wrist_2_link" reason="Never"/>
@@ -267,7 +271,6 @@
     <disable_collisions link1="right_inner_finger_pad" link2="right_outer_finger" reason="Never"/>
     <disable_collisions link1="right_inner_finger_pad" link2="right_outer_knuckle" reason="Never"/>
     <disable_collisions link1="right_inner_finger_pad" link2="robotiq_140_base_link" reason="Never"/>
-    <disable_collisions link1="right_inner_finger_pad" link2="slide_window_link" reason="Never"/>
     <disable_collisions link1="right_inner_finger_pad" link2="ur_to_robotiq_link" reason="Never"/>
     <disable_collisions link1="right_inner_finger_pad" link2="wrist_1_link" reason="Never"/>
     <disable_collisions link1="right_inner_finger_pad" link2="wrist_2_link" reason="Never"/>

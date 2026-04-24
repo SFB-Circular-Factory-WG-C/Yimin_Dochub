@@ -15,9 +15,9 @@ joint_limits:
       has_position_limits: true
       has_velocity_limits: true
       max_effort: 330.0
-      max_position: 1.74533  # 100 degrees in radians
+      max_position: 3.14159  # 180 degrees in radians
       max_velocity: 2.0944   # 120 degrees in radians
-      min_position: -1.74533 # -100 degrees in radians
+      min_position: -3.14159 # -180 degrees in radians
     shoulder_lift_joint:
       # acceleration limits are not publicly available
       has_acceleration_limits: false
