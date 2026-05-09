@@ -230,5 +230,6 @@ src/vMF-Contact/
 
 src/robot_station_description_backup/
 src/robot_station_moveit_config_backup/
+src/.codex
 
 rqt*
