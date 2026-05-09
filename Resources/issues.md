@@ -3,7 +3,7 @@
 ### 1. The gripper went to a deeper z-position, which then led to the crash with the desk and thus an emergency stop.
 - The pose was given by the vMF-Algorithm.
 - **Example 1** ``pcd 9274 th=0.8 w/o bounds``.
-- Notice that I moved the table a bit so that they did not really crash, but as can be seen from the pictures, the gripper finger was already lower than the table plane. 
+- Notice that I moved the table a bit so that they did not really crash, but as can be seen from the pictures, the gripper finger was already lower than the table plane.
 ![img_2-13](issues_260311/img_2-13.png)
 ![img_2-14](issues_260311/img_2-14.png)
 - Is the offset due to a bigger gripper we use in the setup? Any solution to offset the gripper a bit in approach direction?
