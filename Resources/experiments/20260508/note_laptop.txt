@@ -1,9 +1,0 @@
-3-1
-[moveit2_iface-3] [ERROR] [1778250506.321224169] [moveit2_iface]: IK solution not found for target pose.
-[moveit2_iface-3] [INFO] [1778250506.423615771] [moveit2_iface]: Received new target pose for servo control.
-[moveit2_iface-3] [WARN] [1778250506.424110058] [moveit2_iface]: IK solution found but is in collision or invalid.
-[moveit2_iface-3] [WARN] [1778250506.424256904] [moveit2_iface]: Colliding links: forearm_link, orbbec_femto_mega_link
---
-3-2
-same to 3-1
---
