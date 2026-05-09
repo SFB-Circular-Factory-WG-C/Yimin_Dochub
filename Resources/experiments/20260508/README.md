@@ -56,12 +56,12 @@
 |No.|Result|Description|Poses|Grasp|Log|Record|
 |--|--|--|--|--|--|--|
 |3|Partially successful|Manual intervention|[5-3](5-3_poses.gif)|[5-3](5-3_grasp.gif)||[5-3](5-3.mp4)|
-|4|Failed|Item fell during movement|[5-4](5-4_poses.gif)|[5-4](5-4_grasp.gif)||[5-4](5-4.mp4)|
-|5|Partially successful|Manual intervention|[5-5](5-5_poses.gif)|[5-5](5-5_grasp.gif)||[5-5](5-5.mp4)|
-|6|Partially successful|Manual intervention|[5-6](5-6_poses.gif)|[5-6](5-6_grasp.gif)||[5-6](5-6.mp4)|
-|7|Partially successful|Manual intervention|[5-7](5-7_poses.gif)|[5-7](5-7_grasp.gif)||[5-7](5-7.mp4)|
+|4|Failed|Item fell during movement|[5-4](5-4_poses.gif)|[5-4](5-4_grasp.gif)||**TBD** [5-4](5-4.mp4)|
+|5|Partially successful|Manual intervention|[5-5](5-5_poses.gif)|[5-5](5-5_grasp.gif)||**TBD** [5-5](5-5.mp4)|
+|6|Partially successful|Manual intervention|[5-6](5-6_poses.gif)|[5-6](5-6_grasp.gif)||**TBD** [5-6](5-6.mp4)|
+|7|Partially successful|Manual intervention|[5-7](5-7_poses.gif)|[5-7](5-7_grasp.gif)||**TBD** [5-7](5-7.mp4)|
 - Conclusion: 
-    - After adding the wedge, Test5 partially successed 4/5. 
+    - After adding the wedge, Test5 partially succeeded 4/5. 
     - The failure was because the gripper grasped on an additional part of the tool and did not firmly grasp on the handle. 
     - For successful placement, manual intervention was necessary.
 
@@ -87,7 +87,7 @@
 |6|Partially successful|Manual intervention|[6-6](6-6_poses.gif)|[6-6](6-6_grasp.gif)||[6-6](6-6.mp4)|
 |7|Partially successful|Manual intervention|[6-7](6-7_poses.gif)|[6-7](6-7_grasp.gif)||[6-7](6-7.mp4)|
 - Conclusion: 
-    - After adding the wedge, Test5 partially successed 5/5. 
+    - After adding the wedge, Test5 partially succeeded 5/5. 
     - For successful placement, manual intervention was necessary.
 
 
