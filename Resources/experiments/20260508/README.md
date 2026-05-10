@@ -59,11 +59,13 @@
 |4|Failed|Item fell during movement|[5-4](5-4_poses.gif)|[5-4](5-4_grasp.gif)|[5-4](5-4_log.md)|[5-4](5-4.mp4)|
 |5|Partially successful|Manual intervention|[5-5](5-5_poses.gif)|[5-5](5-5_grasp.gif)|[5-5](5-5_log.md)|[5-5](5-5.mp4)|
 |6|Partially successful|Manual intervention|[5-6](5-6_poses.gif)|[5-6](5-6_grasp.gif)|[5-6](5-6_log.md)|[5-6](5-6.mp4)|
-|7|Partially successful|Manual intervention|[5-7](5-7_poses.gif)|[5-7](5-7_grasp.gif)|[5-7](5-7_log.md)|[5-7](5-7.mp4)|
+|7|*Firm grip, tool not tilted, Partially successful|Manual intervention|[5-7](5-7_poses.gif)|[5-7](5-7_grasp.gif)|[5-7](5-7_log.md)|[5-7](5-7.mp4)|
 - Conclusion: 
     - After adding the wedge, Test5 partially succeeded 4/5. 
-    - The failure was because the gripper grasped on an additional part of the tool and did not firmly grasp on the handle. 
     - For successful placement, manual intervention was necessary.
+    - In 5-4 the failure was because the gripper grasped on an additional black part of the tool and did not firmly grasp on the handle. 
+    - *It is worth noticing that in 5-7 the contact was also on the additional part. The grasp was instead quite firm and the angle grinder was not tilted. One of the reason might be that the groove on the part gave extra grip for the grasp.
+        - Maybe a manual offset of center of mass along the handle axis would help improve results(?)
 
 ## Test 6
 ![View6](view6_Color.png)
@@ -75,7 +77,7 @@
 ||Skipped|
 - Conclusion: Test6 stopped after 2 attempts due to trapped gripper.
 
-### Test6 Variant
+### Test 6 Variant
 - Added a wedge under the angle grinder
 ![View6-z](view6-z_Color.png)
 
@@ -87,7 +89,7 @@
 |6|Partially successful|Manual intervention|[6-6](6-6_poses.gif)|[6-6](6-6_grasp.gif)|[6-6](6-6_log.md)|[6-6](6-6.mp4)|
 |7|Partially successful|Manual intervention|[6-7](6-7_poses.gif)|[6-7](6-7_grasp.gif)|[6-7](6-7_log.md)|[6-7](6-7.mp4)|
 - Conclusion: 
-    - After adding the wedge, Test5 partially succeeded 5/5. 
+    - After adding the wedge, Test6 partially succeeded 5/5. 
     - For successful placement, manual intervention was necessary.
 
 
