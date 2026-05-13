@@ -325,4 +325,6 @@ cog_T_grasp:
 [INFO] [1778603129.581016981] [pcd_subsriber_node]: Place pose published.
 Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/2-7_grasp.ply
 [INFO] [1778603132.228657690] [pcd_subsriber_node]: Inference complete. Shutting down.
+--
+result: partially succeeded, Manual intervention
 
