@@ -1,0 +1,1157 @@
+1-3
+header:
+  stamp:
+    sec: 1778677320
+    nanosec: 455230551
+  frame_id: base_link
+pose:
+  position:
+    x: -0.5337145328521729
+    y: 0.15902256965637207
+    z: 0.15889684855937958
+  orientation:
+    x: -0.931319889475656
+    y: -0.055317568240914605
+    z: 0.35885452407596385
+    w: 0.02840177214852646
+---
+header:
+  stamp:
+    sec: 1778677320
+    nanosec: 466520547
+  frame_id: placement_link
+pose:
+  position:
+    x: -0.03496898026090922
+    y: 0.0334017349268485
+    z: 0.0034639977934729504
+  orientation:
+    x: 0.7028950020257746
+    y: 0.6134781043713013
+    z: -0.30125152091442714
+    w: 0.19705520224273612
+---
+[INFO] [1778677295.078774893] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778677295.181105360] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778677295.287511720] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778677295.288984199] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778677295, nanosec=184915979), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923607431799934, y=0.1334627024165498, z=0.685824364895934), rotation=geometry_msgs.msg.Quaternion(x=0.686673335680419, y=0.7248086706946506, z=-0.05594380490416846, w=-0.0015529469485045023)))
+[INFO] [1778677295.293552647] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 1-3
+Bounding Box center: [0.14232282 0.10493491 0.04676422]
+Point-cloud center of gravity: [0.14318718 0.1286159  0.06210148]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+No OBB provided for visualization
+Saved point cloud and poses to /home/jetson/wbk_ur10_ws/src/vmf/1-3_poses.ply
+[INFO] [1778677320.446411390] [pcd_subsriber_node]: Inference time: 13.519s
+[INFO] [1778677320.454881936] [pcd_subsriber_node]: Predicted translation: [-0.53371453  0.15902257  0.15889685], quaternion: (-0.931319889475656, -0.055317568240914605, 0.35885452407596385, 0.02840177214852646)
+[INFO] [1778677320.457031069] [pcd_subsriber_node]: Grasp pose published.
+cog_T_grasp:
+[[ 0.06578428  0.98114779 -0.18171827 -0.03496898]
+ [ 0.74369505 -0.16962773 -0.64664062  0.03340173]
+ [-0.6652745  -0.0926042  -0.74083358  0.003464  ]
+ [ 0.          0.          0.          1.        ]]
+[INFO] [1778677320.466224125] [pcd_subsriber_node]: Placement pose translation: [-0.03496898  0.03340173  0.003464  ], quaternion: (0.7028950020257746, 0.6134781043713013, -0.30125152091442714, 0.19705520224273612)
+[INFO] [1778677320.467719804] [pcd_subsriber_node]: Place pose published.
+Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/1-3_grasp.ply
+[INFO] [1778677323.584928924] [pcd_subsriber_node]: Inference complete. Shutting down.
+--
+result: Failed, gripper too close to the foam, aborted
+
+1-4
+header:
+  stamp:
+    sec: 1778677760
+    nanosec: 589153746
+  frame_id: base_link
+pose:
+  position:
+    x: -0.5681758522987366
+    y: 0.16393190622329712
+    z: 0.16231726109981537
+  orientation:
+    x: 0.941975435424822
+    y: 0.08555130192068605
+    z: -0.3232665725716941
+    w: 0.02935944232512293
+--
+header:
+  stamp:
+    sec: 1778677760
+    nanosec: 601693387
+  frame_id: placement_link
+pose:
+  position:
+    x: -0.031318416999047194
+    y: 0.015256116628423522
+    z: 0.0042115490672891
+  orientation:
+    x: 0.6503095261288021
+    y: 0.6868291393409204
+    z: -0.22317284069771862
+    w: 0.23570561459849354
+--
+[INFO] [1778677751.568224283] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778677751.670568504] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778677751.772685422] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778677751.774144510] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778677751, nanosec=666678642), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923684476993861, y=0.13345006204849594, z=0.6858196045297265), rotation=geometry_msgs.msg.Quaternion(x=0.6866609086297305, y=0.7248192243182408, z=-0.05595925262758148, w=-0.001565459631910914)))
+[INFO] [1778677751.778669523] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 1-4
+Bounding Box center: [0.12051831 0.11564205 0.05112053]
+Point-cloud center of gravity: [0.12076634 0.14623512 0.06309089]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+No OBB provided for visualization
+Saved point cloud and poses to /home/jetson/wbk_ur10_ws/src/vmf/1-4_poses.ply
+[INFO] [1778677760.583993225] [pcd_subsriber_node]: Inference time: 6.184s
+[INFO] [1778677760.588769541] [pcd_subsriber_node]: Predicted translation: [-0.56817585  0.1639319   0.16231726], quaternion: (0.941975435424822, 0.08555130192068605, -0.3232665725716941, 0.02935944232512293)
+[INFO] [1778677760.590924300] [pcd_subsriber_node]: Grasp pose published.
+cog_T_grasp:
+[[-4.30807661e-02  9.98509241e-01  3.35161206e-02 -3.13184170e-02]
+ [ 7.88096866e-01  5.45828022e-02 -6.13126417e-01  1.52561166e-02]
+ [-6.14041805e-01 -3.84204668e-09 -7.89273500e-01  4.21154907e-03]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+[INFO] [1778677760.601397377] [pcd_subsriber_node]: Placement pose translation: [-0.03131842  0.01525612  0.00421155], quaternion: (0.6503095261288021, 0.6868291393409204, -0.22317284069771862, 0.23570561459849354)
+[INFO] [1778677760.602815216] [pcd_subsriber_node]: Place pose published.
+Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/1-4_grasp.ply
+[INFO] [1778677768.591880658] [pcd_subsriber_node]: Inference complete. Shutting down.
+
+--
+result: aborted, not firm grip
+--
+
+
+
+
+3-3
+header:
+  stamp:
+    sec: 1778677977
+    nanosec: 110125982
+  frame_id: base_link
+pose:
+  position:
+    x: -0.8284133672714233
+    y: 0.1434457004070282
+    z: 0.16031737625598907
+  orientation:
+    x: -0.9975297226616733
+    y: -0.032714080148333005
+    z: 0.0038292229634353456
+    w: 0.06204497093294539
+---
+
+header:
+  stamp:
+    sec: 1778677977
+    nanosec: 114958571
+  frame_id: placement_link
+pose:
+  position:
+    x: -0.0012187604643104782
+    y: -0.03428512810936335
+    z: 0.008672394879026962
+  orientation:
+    x: -0.5654839666170798
+    y: -0.8224133034230283
+    z: 0.05221759483364203
+    w: 0.03372780220566522
+--
+[INFO] [1778677961.080784799] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778677961.182923081] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778677961.291925181] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778677961.293398633] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778677961, nanosec=158839048), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923467343536729, y=0.13349683611082888, z=0.6857938611989274), rotation=geometry_msgs.msg.Quaternion(x=0.6867044954588232, y=0.7247814909426049, z=-0.05591350637073401, w=-0.001551163752748189)))
+[INFO] [1778677961.297905166] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 3-3
+Bounding Box center: [-0.09204454  0.12083381  0.03968262]
+Point-cloud center of gravity: [-0.10000688  0.14343062  0.06160734]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+No OBB provided for visualization
+Saved point cloud and poses to /home/jetson/wbk_ur10_ws/src/vmf/3-3_poses.ply
+[INFO] [1778677977.106712345] [pcd_subsriber_node]: Inference time: 6.732s
+[INFO] [1778677977.109808660] [pcd_subsriber_node]: Predicted translation: [-0.82841337  0.1434457   0.16031738], quaternion: (-0.9975297226616733, -0.032714080148333005, 0.0038292229634353456, 0.06204497093294539)
+[INFO] [1778677977.111166492] [pcd_subsriber_node]: Grasp pose published.
+cog_T_grasp:
+[[-0.35818067  0.92660069 -0.11453281 -0.00121876]
+ [ 0.93364552  0.35500241 -0.04774383 -0.03428513]
+ [-0.00358004 -0.12403395 -0.99227154  0.00867239]
+ [ 0.  header:
+  stamp:
+    sec: 1778678670
+    nanosec: 429666769
+  frame_id: placement_link
+pose:
+  position:
+    x: -0.04389239175921661
+    y: 0.013898075912259222
+    z: -0.008279595502198145
+  orientation:
+    x: 0.6557981809664367
+    y: 0.7484656951286583
+    z: -0.06499820049127794
+    w: 0.07418276747049889
+---
+        0.          0.          1.        ]]
+[INFO] [1778677977.114773702] [pcd_subsriber_node]: Placement pose translation: [-0.00121876 -0.03428513  0.00867239], quaternion: (-0.5654839666170798, -0.8224133034230283, 0.05221759483364203, 0.03372780220566522)
+[INFO] [1778677977.116045803] [pcd_subsriber_node]: Place pose published.
+Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/3-3_grasp.ply
+[INFO] [1778677979.364220942] [pcd_subsriber_node]: Inference complete. Shutting down.
+--
+result: failed, placement big deviation
+
+--
+3-4
+header:
+  stamp:
+    sec: 1778678670
+    nanosec: 413676198
+  frame_id: base_link
+pose:
+  position:
+    x: -0.8067144751548767
+    y: 0.17186835408210754
+    z: 0.15956364572048187
+  orientation:
+    x: 0.9930198199616932
+    y: 0.06468220785577607
+    z: -0.0984212887552304
+    w: 0.006410855629976919
+---
+header:
+  stamp:
+    sec: 1778678670
+    nanosec: 429666769
+  frame_id: placement_link
+pose:
+  position:
+    x: -0.04389239175921661
+    y: 0.013898075912259222
+    z: -0.008279595502198145
+  orientation:
+    x: 0.6557981809664367
+    y: 0.7484656951286583
+    z: -0.06499820049127794
+    w: 0.07418276747049889
+---
+[INFO] [1778678661.036163477] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778678661.138447257] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778678661.247033753] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778678661.248466333] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778678661, nanosec=150781790), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923690691185619, y=0.1334462630238533, z=0.6858221877773213), rotation=geometry_msgs.msg.Quaternion(x=0.6866697347297395, y=0.7248118911495134, z=-0.055945914530288646, w=-0.0015660465590053596)))
+[INFO] [1778678661.253080175] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 3-4
+Bounding Box center: [-0.12510735  0.12829168  0.05699786]
+Point-cloud center of gravity: [-0.11626688  0.1277076   0.07668862]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+No OBB provided for visualization
+Saved point cloud and poses to /home/jetson/wbk_ur10_ws/src/vmf/3-4_poses.ply
+[INFO] [1778678670.407497805] [pcd_subsriber_node]: Inference time: 5.046s
+[INFO] [1778678670.413268251] [pcd_subsriber_node]: Predicted translation: [-0.8067145   0.17186835  0.15956365], quaternion: (0.9930198199616932, 0.06468220785577607, -0.0984212887552304, 0.006410855629976919)
+[INFO] [1778678670.415691095] [pcd_subsriber_node]: Grasp pose published.
+cog_T_grasp:
+[[-1.28851334e-01  9.91328356e-01  2.57951118e-02 -4.38923918e-02]
+ [ 9.72041450e-01  1.31407948e-01 -1.94595702e-01  1.38980759e-02]
+ [-1.96297929e-01  3.03641823e-09 -9.80544329e-01 -8.27959550e-03]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+[INFO] [1778678670.429300104] [pcd_subsriber_node]: Placement pose translation: [-0.04389239  0.01389808 -0.0082796 ], quaternion: (0.6557981809664367, 0.7484656951286583, -0.06499820049127794, 0.07418276747049889)
+[INFO] [1778678670.433080517] [pcd_subsriber_node]: Place pose published.
+Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/3-4_grasp.ply
+[INFO] [1778678672.516551388] [pcd_subsriber_node]: Inference complete. Shutting down.
+
+--
+result:
+partially succeeded, manual intervention. After modifying z->0,35, better placement
+
+3-5
+header:
+  stamp:
+    sec: 1778678881
+    nanosec: 197402571
+  frame_id: base_link
+pose:
+  position:
+    x: -0.8195549249649048
+    y: 0.16364383697509766
+    z: 0.15856337547302246
+  orientation:
+    x: 0.9935787212675531
+    y: 0.06354978601965897
+    z: -0.09341866772216238
+    w: 0.005975103530984594
+---
+header:
+  stamp:
+    sec: 1778678881
+    nanosec: 206996563
+  frame_id: placement_link
+pose:
+  position:
+    x: -0.04622319779639228
+    y: 0.009429861048325439
+    z: -0.010899885921914515
+  orientation:
+    x: 0.6531653845862141
+    y: 0.7514068339933057
+    z: -0.06141218795625767
+    w: 0.07064908617190309
+---
+[INFO] [1778678875.947965380] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778678876.050259247] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778678876.154847185] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778678876.156326325] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778678876, nanosec=58728063), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923691582348869, y=0.1334561226899599, z=0.6858258625972603), rotation=geometry_msgs.msg.Quaternion(x=0.6866793693639307, y=0.7248007898734564, z=-0.05597209538251188, w=-0.0015437704684139759)))
+[INFO] [1778678876.160866947] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ Bounding Box center: [-0.129936    0.11794355  0.05975156]
+Point-cloud center of gravity: [-0.12913358  0.11712898  0.07717496]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+No OBB provided for visualization
+Saved point cloud and poses to /home/jetson/wbk_ur10_ws/src/vmf/vmf_20260513_132756_poses.ply
+[INFO] [1778678881.191345657] [pcd_subsriber_node]: Inference time: 5.026s
+[INFO] [1778678881.197061923] [pcd_subsriber_node]: Predicted translation: [-0.8195549   0.16364384  0.15856338], quaternion: (0.9935787212675531, 0.06354978601965897, -0.09341866772216238, 0.005975103530984594)
+[INFO] [1778678881.198637193] [pcd_subsriber_node]: Grasp pose published.
+cog_T_grasp:
+[[-1.36767376e-01  9.90263300e-01  2.59477828e-02 -4.62231978e-02]
+ [ 9.72908452e-01  1.39207049e-01 -1.84582159e-01  9.42986105e-03]
+ [-1.86397046e-01 -6.60664190e-10 -9.82474506e-01 -1.08998859e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+[INFO] [1778678881.206716300] [pcd_subsriber_node]: Placement pose translation: [-0.0462232   0.00942986 -0.01089989], quaternion: (0.6531653845862141, 0.7514068339933057, -0.06141218795625767, 0.07064908617190309)
+[INFO] [1778678881.208321395] [pcd_subsriber_node]: Place pose published.
+Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/vmf_20260513_132756_grasp.ply
+[INFO] [1778678886.359555707] [pcd_subsriber_node]: Inference complete. Shutting down.
+--
+result:
+partially succeeded, manual intervation. 
+
+3-6
+header:
+  stamp:
+    sec: 1778679076
+    nanosec: 288150531
+  frame_id: base_link
+pose:
+  position:
+    x: -0.8116928339004517
+    y: 0.13997094333171844
+    z: 0.1598818302154541
+  orientation:
+    x: 0.9814443399650536
+    y: 0.18213980422885792
+    z: -0.058927939787672065
+    w: 0.010936049488450736
+---
+
+header:
+  stamp:
+    sec: 1778679076
+    nanosec: 291982302
+  frame_id: placement_link
+pose:
+  position:
+    x: -0.01488096910315967
+    y: 0.012601520103545316
+    z: -0.010494822460334646
+  orientation:
+    x: 0.6389516841749899
+    y: 0.7669084991924132
+    z: -0.03836397366688454
+    w: 0.04604676623685097
+---
+[INFO] [1778679066.719021726] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778679066.821165156] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778679066.922333681] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778679066.923807157] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778679066, nanosec=816889814), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923636968771828, y=0.13346708051123338, z=0.68580599118435), rotation=geometry_msgs.msg.Quaternion(x=0.6866641696328893, y=0.7248178070645123, z=-0.05593840915532796, w=-0.001535931553604547)))
+[INFO] [1778679066.928443075] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 3-6
+Bounding Box center: [-0.12633386  0.12063999  0.06163482]
+Point-cloud center of gravity: [-0.11633465  0.12540296  0.07711849]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+No OBB provided for visualization
+Saved point cloud and poses to /home/jetson/wbk_ur10_ws/src/vmf/3-6_poses.ply
+[INFO] [1778679076.283754714] [pcd_subsriber_node]: Inference time: 4.881s
+[INFO] [1778679076.287815579] [pcd_subsriber_node]: Predicted translation: [-0.81169283  0.13997094  0.15988183], quaternion: (0.9814443399650536, 0.18213980422885792, -0.058927939787672065, 0.010936049488450736)
+[INFO] [1778679076.289186908] [pcd_subsriber_node]: Grasp pose published.
+cog_T_grasp:
+[[-1.79240891e-01  9.83568033e-01  2.16018605e-02 -1.48809691e-02]
+ [ 9.76501934e-01  1.80537917e-01 -1.17686636e-01  1.26015201e-02]
+ [-1.19652770e-01  1.02960518e-09 -9.92815852e-01 -1.04948225e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+[INFO] [1778679076.291832763] [pcd_subsriber_node]: Placement pose translation: [-0.01488097  0.01260152 -0.01049482], quaternion: (0.6389516841749899, 0.7669084991924132, -0.03836397366688454, 0.04604676623685097)
+[INFO] [1778679076.292900596] [pcd_subsriber_node]: Place pose published.
+Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/3-6_grasp.ply
+[INFO] [1778679079.339507866] [pcd_subsriber_node]: Inference complete. Shutting down.
+
+--
+result:
+failed, tool sticked on the gripper when placement
+
+3-7
+header:
+  stamp:
+    sec: 1778679308
+    nanosec: 413466008
+  frame_id: base_link
+pose:
+  position:
+    x: -0.8215228319168091
+    y: 0.1673155128955841
+    z: 0.1595645695924759
+  orientation:
+    x: 0.996628237852906
+    y: 0.06442489448980329
+    z: -0.0507035076464092
+    w: 0.003277620560717969
+---
+header:
+  stamp:
+    sec: 1778679308
+    nanosec: 416893033
+  frame_id: placement_link
+pose:
+  position:
+    x: -0.04833723167079225
+    y: 0.00949518053700571
+    z: -0.00843214401580683
+  orientation:
+    x: 0.6592792756202855
+    y: 0.7501794772412618
+    z: -0.03354086443815125
+    w: 0.0381654172826658
+---
+[INFO] [1778679299.028475915] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778679299.131193922] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778679299.232748702] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778679299.234220129] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778679299, nanosec=146720823), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923593488588521, y=0.1334406304894235, z=0.6858743463316931), rotation=geometry_msgs.msg.Quaternion(x=0.6866627094807005, y=0.724815939792622, z=-0.055979455484520636, w=-0.0015739742112857052)))
+[INFO] [1778679299.238706059] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 3-7
+Bounding Box center: [-0.13472368  0.11801074  0.05694918]
+Point-cloud center of gravity: [-0.12728348  0.11994015  0.07704425]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+No OBB provided for visualization
+Saved point cloud and poses to /home/jetson/wbk_ur10_ws/src/vmf/3-7_poses.ply
+[INFO] [1778679308.407692144] [pcd_subsriber_node]: Inference time: 4.112s
+[INFO] [1778679308.413141584] [pcd_subsriber_node]: Predicted translation: [-0.82152283  0.16731551  0.15956457], quaternion: (0.996628237852906, 0.06442489448980329, -0.0507035076464092, 0.003277620560717969)
+[INFO] [1778679308.414481648] [pcd_subsriber_node]: Grasp pose published.
+cog_T_grasp:
+[[-1.27788477e-01  9.91715851e-01  1.30362320e-02 -4.83372317e-02]
+ [ 9.86595375e-01  1.28451704e-01 -1.00646674e-01  9.49518054e-03]
+ [-1.01487420e-01  1.11684140e-09 -9.94836867e-01 -8.43214402e-03]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+[INFO] [1778679308.416748837] [pcd_subsriber_node]: Placement pose translation: [-0.04833723  0.00949518 -0.00843214], quaternion: (0.6592792756202855, 0.7501794772412618, -0.03354086443815125, 0.0381654172826658)
+[INFO] [1778679308.417846559] [pcd_subsriber_node]: Place pose published.
+Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/3-7_grasp.ply
+[INFO] [1778679310.720146866] [pcd_subsriber_node]: Inference complete. Shutting down.
+--
+result:
+ps, mi
+
+4-3
+[INFO] [1778679613.413630633] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778679613.515698585] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778679613.616066036] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778679613.617526620] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778679613, nanosec=530703555), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923528221943459, y=0.13345523489363012, z=0.6858084488051263), rotation=geometry_msgs.msg.Quaternion(x=0.6866656119949417, y=0.7248152389487101, z=-0.055953900268469456, w=-0.001538744970005154)))
+[INFO] [1778679613.622024666] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 4-4
+Bounding Box center: [ 0.16364236 -0.04810553  0.06577228]
+Point-cloud center of gravity: [ 0.15953884 -0.0382085   0.07596596]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+[INFO] [1778679618.194368178] [pcd_subsriber_node]: Inference time: 1.061s
+[INFO] [1778679618.195300031] [pcd_subsriber_node]: No prediction returned.
+Saved point cloud (no pose) to /home/jetson/wbk_ur10_ws/src/vmf/4-4_no_pose.ply
+[INFO] [1778679620.726734511] [pcd_subsriber_node]: Inference complete. Shutting down.
+--
+result: NO pose
+
+4-4
+[INFO] [1778679649.414798711] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778679649.516814028] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778679649.618377099] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778679649.619854449] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778679649, nanosec=526883375), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923481629106445, y=0.13344573516926345, z=0.6858104705639576), rotation=geometry_msgs.msg.Quaternion(x=0.686661703587176, y=0.724818852904649, z=-0.055954835238522745, w=-0.0015465167880915856)))
+[INFO] [1778679649.624420684] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 4-4
+Bounding Box center: [ 0.13214932 -0.04584369  0.05783157]
+Point-cloud center of gravity: [ 0.12230619 -0.03465141  0.07613181]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+[INFO] [1778679653.708374950] [pcd_subsriber_node]: Inference time: 1.027s
+[INFO] [1778679653.709390615] [pcd_subsriber_node]: No prediction returned.
+Saved point cloud (no pose) to /home/jetson/wbk_ur10_ws/src/vmf/4-4_no_pose.ply
+[INFO] [1778679657.059751663] [pcd_subsriber_node]: Inference complete. Shutting down.
+--
+result: no pose
+--
+7-1
+[INFO] [1778680007.523497574] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778680007.626262110] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778680007.726100392] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778680007.727583936] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778680007, nanosec=595701284), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923448609416738, y=0.13345469172691637, z=0.685821745990794), rotation=geometry_msgs.msg.Quaternion(x=0.686673539454816, y=0.7248079164111055, z=-0.05595134299672107, w=-0.001543287805452652)))
+[INFO] [1778680007.732208205] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 7-1
+Bounding Box center: [ 0.12878059 -0.17795217  0.0464244 ]
+Point-cloud center of gravity: [ 0.16700354 -0.14999932  0.06673995]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+[INFO] [1778680010.507989223] [pcd_subsriber_node]: Inference time: 1.036s
+[INFO] [1778680010.508936875] [pcd_subsriber_node]: No prediction returned.
+Saved point cloud (no pose) to /home/jetson/wbk_ur10_ws/src/vmf/7-1_no_pose.ply
+[INFO] [1778680036.275494868] [pcd_subsriber_node]: Inference complete. Shutting down.
+
+
+7-2
+[INFO] [1778680104.453592774] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778680104.555697138] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778680104.656937280] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778680104.658407828] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778680104, nanosec=516684251), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923593823425289, y=0.13343725616025348, z=0.6858267301164265), rotation=geometry_msgs.msg.Quaternion(x=0.6866536495593202, y=0.724826449238127, z=-0.05595510151387992, w=-0.0015526256105999495)))
+[INFO] [1778680104.662995481] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 7-2
+Bounding Box center: [ 0.00434046 -0.16715382  0.06261567]
+Point-cloud center of gravity: [ 0.12023089 -0.1640109   0.06825919]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+[INFO] [1778680108.222724323] [pcd_subsriber_node]: Inference time: 1.155s
+[INFO] [1778680108.223821226] [pcd_subsriber_node]: No prediction returned.
+Saved point cloud (no pose) to /home/jetson/wbk_ur10_ws/src/vmf/7-2_no_pose.ply
+[INFO] [1778680133.455154233] [pcd_subsriber_node]: Inference complete. Shutting down.
+
+7-3.7-4 same to 7-2
+
+
+7-5
+[INFO] [1778680428.102003959] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778680428.204253398] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778680428.304142474] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778680428.305620345] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778680428, nanosec=181089640), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923671148487655, y=0.13345251250714749, z=0.6857869352036158), rotation=geometry_msgs.msg.Quaternion(x=0.6866849688613587, y=0.724798769156593, z=-0.05593001233466327, w=-0.0015269214803395696)))
+[INFO] [1778680428.310180618] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 7-5
+Bounding Box center: [ 0.17287339 -0.1726105   0.0564563 ]
+Point-cloud center of gravity: [ 0.16407692 -0.16240071  0.0658399 ]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+[INFO] [1778680431.234808538] [pcd_subsriber_node]: Inference time: 1.061s
+[INFO] [1778680431.236211751] [pcd_subsriber_node]: No prediction returned.
+Saved point cloud (no pose) to /home/jetson/wbk_ur10_ws/src/vmf/7-7_no_pose.ply
+[INFO] [1778680439.025140530] [pcd_subsriber_node]: Inference complete. Shutting down.
+--
+added wedge
+7-6, 7-7, 7-8 no pose
+result: aborted due to no valid grasp pose
+
+
+
+
+
+
+8-1
+header:
+  stamp:
+    sec: 1778680553
+    nanosec: 660087015
+  frame_id: base_link
+pose:
+  position:
+    x: -0.6666120290756226
+    y: -0.18409086763858795
+    z: 0.1436949074268341
+  orientation:
+    x: 0.9797767112043109
+    y: 0.029883540427009664
+    z: -0.19775790493505294
+    w: 0.006031685412078895
+---
+header:
+  stamp:
+    sec: 1778680553
+    nanosec: 678947311
+  frame_id: placement_link
+pose:
+  position:
+    x: -0.017695915399625006
+    y: 0.04461620753465989
+    z: -0.013989547508919092
+  orientation:
+    x: 0.6548459903173137
+    y: 0.7294053459035683
+    z: -0.13217396462226805
+    w: 0.1472230057044887
+---
+[INFO] [1778680537.674322731] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778680537.776473903] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778680537.876259914] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778680537.877683862] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778680537, nanosec=765323440), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6924016988999414, y=0.13341151370471777, z=0.6857436620375263), rotation=geometry_msgs.msg.Quaternion(x=0.6866513778115038, y=0.7248317551035737, z=-0.0559153722176035, w=-0.0015110568498415819)))
+[INFO] [1778680537.882267909] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 8-1
+Bounding Box center: [-0.04703102 -0.19610496  0.0398386 ]
+Point-cloud center of gravity: [ 0.02302153 -0.20326988  0.07353031]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+No OBB provided for visualization
+Saved point cloud and poses to /home/jetson/wbk_ur10_ws/src/vmf/8-1_poses.ply
+[INFO] [1778680553.656042250] [pcd_subsriber_node]: Inference time: 7.029s
+[INFO] [1778680553.659625113] [pcd_subsriber_node]: Predicted translation: [-0.666612   -0.18409087  0.1436949 ], quaternion: (0.9797767112043109, 0.029883540427009664, -0.19775790493505294, 0.006031685412078895)
+[INFO] [1778680553.661210314] [pcd_subsriber_node]: Grasp pose published.
+cog_T_grasp:
+[[-9.90042379e-02  9.94214472e-01  4.16633125e-02 -1.76959154e-02]
+ [ 9.16378298e-01  1.07413547e-01 -3.85633564e-01  4.46162075e-02]
+ [-3.87877703e-01 -2.23632335e-09 -9.21710849e-01 -1.39895475e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+[INFO] [1778680553.678620805] [pcd_subsriber_node]: Placement pose translation: [-0.01769592  0.04461621 -0.01398955], quaternion: (0.6548459903173137, 0.7294053459035683, -0.13217396462226805, 0.1472230057044887)
+[INFO] [1778680553.679969615] [pcd_subsriber_node]: Place pose published.
+Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/8-1_grasp.ply
+[INFO] [1778680556.739213209] [pcd_subsriber_node]: Inference complete. Shutting down.
+--
+result: gripper stuck in foam. failed
+
+8-2
+[INFO] [1778680672.473280193] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778680672.575440049] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778680672.679192560] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778680672.680644188] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778680672, nanosec=547020069), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923501348913513, y=0.13346018331582649, z=0.6858421332979178), rotation=geometry_msgs.msg.Quaternion(x=0.6866706648564732, y=0.7248098685807977, z=-0.055960682020471074, w=-0.0015666847990053825)))
+[INFO] [1778680672.685135780] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 8-2
+Bounding Box center: [ 0.03603428 -0.19366906  0.06212028]
+Point-cloud center of gravity: [ 0.03874904 -0.1984219   0.07369947]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+[INFO] [1778680679.033675943] [pcd_subsriber_node]: Inference time: 0.979s
+[INFO] [1778680679.034673733] [pcd_subsriber_node]: No prediction returned.
+Saved point cloud (no pose) to /home/jetson/wbk_ur10_ws/src/vmf/8-2_no_pose.ply
+[INFO] [1778680688.331948170] [pcd_subsriber_node]: Inference complete. Shutting down.
+
+8-3
+**The pcd was replaced, and the result of the experiment later is: no pose
+header:
+  stamp:
+    sec: 1778680760
+    nanosec: 374785202
+  frame_id: base_link
+pose:
+  position:
+    x: -0.6704888343811035
+    y: -0.21018099784851074
+    z: 0.14662303030490875
+  orientation:
+    x: 0.9834344123752964
+    y: 0.035318676788306136
+    z: -0.17767563375447798
+    w: 0.006380971393387073
+--
+header:
+  stamp:
+    sec: 1778680760
+    nanosec: 392177080
+  frame_id: placement_link
+pose:
+  position:
+    x: 0.000513824812193503
+    y: 0.045240009835136985
+    z: -0.012795812816868923
+  orientation:
+    x: 0.6571560023946124
+    y: 0.7324866145627374
+    z: -0.11872740020107461
+    w: 0.13233726778442162
+--
+[INFO] [1778680748.591992012] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778680748.693991952] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778680748.798289080] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778680748.799773221] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778680748, nanosec=684863319), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923553839404075, y=0.13342021387111852, z=0.6858382670698565), rotation=geometry_msgs.msg.Quaternion(x=0.686648559225525, y=0.7248304713224288, z=-0.05596552030704348, w=-0.0015506426984374117)))
+[INFO] [1778680748.804399439] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 8-3
+Bounding Box center: [-0.04974823 -0.20476835  0.04417095]
+Point-cloud center of gravity: [ 0.01838837 -0.21126355  0.07266673]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+No OBB provided for visualization
+Saved point cloud and poses to /home/jetson/wbk_ur10_ws/src/vmf/8-3_poses.ply
+[INFO] [1778680760.371003425] [pcd_subsriber_node]: Inference time: 6.659s
+[INFO] [1778680760.374471593] [pcd_subsriber_node]: Predicted translation: [-0.67048883 -0.210181    0.14662303], quaternion: (0.9834344123752964, 0.035318676788306136, -0.17767563375447798, 0.006380971393387073)
+[INFO] [1778680760.375833777] [pcd_subsriber_node]: Grasp pose published.
+cog_T_grasp:
+[[-1.01265676e-01  9.94140149e-01  3.78257104e-02  5.13824812e-04]
+ [ 9.31291866e-01  1.08099593e-01 -3.47864945e-01  4.52400098e-02]
+ [-3.49915415e-01 -2.72870659e-09 -9.36781347e-01 -1.27958128e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+[INFO] [1778680760.391878575] [pcd_subsriber_node]: Placement pose translation: [ 0.00051382  0.04524001 -0.01279581], quaternion: (0.6571560023946124, 0.7324866145627374, -0.11872740020107461, 0.13233726778442162)
+[INFO] [1778680760.393273593] [pcd_subsriber_node]: Place pose published.
+Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/8-3_grasp.ply
+[INFO] [1778680762.731235952] [pcd_subsriber_node]: Inference complete. Shutting down.
+--
+result: ps, no mi, but placement has deviation, grasp stuck at first
+
+8-4
+header:
+  stamp:
+    sec: 1778681017
+    nanosec: 659377109
+  frame_id: base_link
+pose:
+  position:
+    x: -0.6615482568740845
+    y: -0.17266973853111267
+    z: 0.1478680819272995
+  orientation:
+    x: -0.9793963164618764
+    y: 0.008785210428868484
+    z: 0.2017483591233684
+    w: 0.0018096877237298594
+---
+
+header:
+  stamp:
+    sec: 1778681017
+    nanosec: 666116663
+  frame_id: placement_link
+pose:
+  position:
+    x: -0.019937222870034826
+    y: 0.04333370791556779
+    z: -0.01282056902773665
+  orientation:
+    x: 0.6816580923955353
+    y: 0.7033040389911775
+    z: -0.140416495764379
+    w: 0.14487540000851926
+--
+[INFO] [1778680995.877064215] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778680995.979019548] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778680996.078661438] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778680996.080149353] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778680995, nanosec=938810083), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923377053753526, y=0.13347003436441396, z=0.6858018266017127), rotation=geometry_msgs.msg.Quaternion(x=0.6866742855765435, y=0.724809471843647, z=-0.05592208931895213, w=-0.0015410969730287915)))
+[INFO] [1778680996.084732654] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 8-4
+Bounding Box center: [-0.03907661 -0.18595603  0.04577933]
+Point-cloud center of gravity: [ 0.02745668 -0.19494772  0.07359797]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+No OBB provided for visualization
+Saved point cloud and poses to /home/jetson/wbk_ur10_ws/src/vmf/8-4_poses.ply
+[INFO] [1778681017.653533708] [pcd_subsriber_node]: Inference time: 15.221s
+[INFO] [1778681017.659045323] [pcd_subsriber_node]: Predicted translation: [-0.66154826 -0.17266974  0.14786808], quaternion: (-0.9793963164618764, 0.008785210428868484, 0.2017483591233684, 0.0018096877237298594)
+[INFO] [1778681017.660737212] [pcd_subsriber_node]: Grasp pose published.
+cog_T_grasp:
+[[-2.87067282e-02  9.99511668e-01  1.23508276e-02 -1.99372229e-02]
+ [ 9.18140023e-01  3.12509087e-02 -3.95021996e-01  4.33337079e-02]
+ [-3.95215005e-01  3.19952842e-10 -9.18588698e-01 -1.28205690e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+[INFO] [1778681017.665722348] [pcd_subsriber_node]: Placement pose translation: [-0.01993722  0.04333371 -0.01282057], quaternion: (0.6816580923955353, 0.7033040389911775, -0.140416495764379, 0.14487540000851926)
+[INFO] [1778681017.668545085] [pcd_subsriber_node]: Place pose published.
+Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/8-4_grasp.ply
+[INFO] [1778681021.054257038] [pcd_subsriber_node]: Inference complete. Shutting down.
+--
+result:ps,mi, noise
+
+8-5
+header:
+  stamp:
+    sec: 1778681283
+    nanosec: 750998617
+  frame_id: base_link
+pose:
+  position:
+    x: -0.6529040336608887
+    y: -0.2061682641506195
+    z: 0.14774836599826813
+  orientation:
+    x: 0.9757194875624352
+    y: 0.03602692032274449
+    z: -0.21589348603358552
+    w: 0.007971530042821817
+--
+header:
+  stamp:
+    sec: 1778681283
+    nanosec: 755253009
+  frame_id: placement_link
+pose:
+  position:
+    x: -0.001633492042021123
+    y: 0.04770210371791539
+    z: -0.01314125851910708
+  orientation:
+    x: 0.6552474190433232
+    y: 0.7238627520503318
+    z: -0.14498392345035016
+    w: 0.1601661573870294
+---
+[INFO] [1778681272.433037194] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778681272.535269496] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778681272.639194743] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778681272.640644896] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778681272, nanosec=528049574), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923558030104082, y=0.1334515933317503, z=0.6858091513296607), rotation=geometry_msgs.msg.Quaternion(x=0.6866638121201822, y=0.7248177832542164, z=-0.05594302407033619, w=-0.0015389154911211545)))
+[INFO] [1778681272.645188512] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 8-5
+Bounding Box center: [-0.03744746 -0.20684853  0.04866697]
+Point-cloud center of gravity: [ 0.03618281 -0.20631075  0.07111228]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+No OBB provided for visualization
+Saved point cloud and poses to /home/jetson/wbk_ur10_ws/src/vmf/8-5_poses.ply
+[INFO] [1778681283.746721088] [pcd_subsriber_node]: Inference time: 8.515s
+[INFO] [1778681283.750650255] [pcd_subsriber_node]: Predicted translation: [-0.65290403 -0.20616826  0.14774837], quaternion: (0.9757194875624352, 0.03602692032274449, -0.21589348603358552, 0.007971530042821817)
+[INFO] [1778681283.752075735] [pcd_subsriber_node]: Grasp pose published.
+cog_T_grasp:
+[[-8.99952459e-02  9.95061426e-01  4.18759528e-02 -1.63349204e-03]
+ [ 9.02175386e-01  9.92609617e-02 -4.19793884e-01  4.77021037e-02]
+ [-4.21877325e-01 -7.74939779e-10 -9.06652987e-01 -1.31412585e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+[INFO] [1778681283.755050571] [pcd_subsriber_node]: Placement pose translation: [-0.00163349  0.0477021  -0.01314126], quaternion: (0.6552474190433232, 0.7238627520503318, -0.14498392345035016, 0.1601661573870294)
+[INFO] [1778681283.756320655] [pcd_subsriber_node]: Place pose published.
+Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/8-5_grasp.ply
+[INFO] [1778681286.219918611] [pcd_subsriber_node]: Inference complete. Shutting down.
+---
+result: failed, stuck in foam, noise
+
+9-1
+header:
+  stamp:
+    sec: 1778681575
+    nanosec: 130900189
+  frame_id: base_link
+pose:
+  position:
+    x: -0.80028235912323
+    y: -0.1615113615989685
+    z: 0.14428925514221191
+  orientation:
+    x: 0.9879624492372752
+    y: 0.014608846222431748
+    z: -0.15398570047325366
+    w: 0.002276962646874949
+---
+
+
+header:
+  stamp:
+    sec: 1778681575
+    nanosec: 140760807
+  frame_id: placement_link
+pose:
+  position:
+    x: -0.03454804712523496
+    y: 0.014243555346205028
+    z: -0.019354736028629915
+  orientation:
+    x: 0.7023291643075376
+    y: 0.694994219597376
+    z: -0.10946635307631022
+    w: 0.10832311495467288
+---
+[INFO] [1778681565.889951641] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778681565.992137610] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778681566.092458759] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778681566.093945608] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778681565, nanosec=950843061), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923757776082252, y=0.13343600638912162, z=0.6858126308492274), rotation=geometry_msgs.msg.Quaternion(x=0.6866663034003787, y=0.72481450020073, z=-0.05595457336075723, w=-0.0015536387098541804)))
+[INFO] [1778681566.098510702] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 9-1
+Bounding Box center: [-0.11695186 -0.19719857  0.05332901]
+Point-cloud center of gravity: [-0.10930917 -0.19600596  0.07195897]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+No OBB provided for visualization
+Saved point cloud and poses to /home/jetson/wbk_ur10_ws/src/vmf/9-1_poses.ply
+[INFO] [1778681575.123701415] [pcd_subsriber_node]: Inference time: 6.048s
+[INFO] [1778681575.130250977] [pcd_subsriber_node]: Predicted translation: [-0.80028236 -0.16151136  0.14428926], quaternion: (0.9879624492372752, 0.014608846222431748, -0.15398570047325366, 0.002276962646874949)
+[INFO] [1778681575.137366580] [pcd_subsriber_node]: Grasp pose published.
+cog_T_grasp:
+[[ 1.00003047e-02  9.99944897e-01 -3.19494765e-03 -3.45480471e-02]
+ [ 9.52513960e-01 -1.04982748e-02 -3.04313953e-01  1.42435553e-02]
+ [-3.04330707e-01  2.82781798e-10 -9.52566445e-01 -1.93547360e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+[INFO] [1778681575.140521660] [pcd_subsriber_node]: Placement pose translation: [-0.03454805  0.01424356 -0.01935474], quaternion: (0.7023291643075376, 0.694994219597376, -0.10946635307631022, 0.10832311495467288)
+[INFO] [1778681575.145907780] [pcd_subsriber_node]: Place pose published.
+Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/9-1_grasp.ply
+[INFO] [1778681577.635707511] [pcd_subsriber_node]: Inference complete. Shutting down.
+--
+result:
+ps, mi
+
+9-2
+header:
+  stamp:
+    sec: 1778681842
+    nanosec: 136285962
+  frame_id: base_link
+pose:
+  position:
+    x: -0.8000267744064331
+    y: -0.14633715152740479
+    z: 0.1460600197315216
+  orientation:
+    x: -0.99248937954148
+    y: 0.05357019016829302
+    z: 0.10981771831061088
+    w: 0.005927475664421472
+--
+header:
+  stamp:
+    sec: 1778681842
+    nanosec: 148094791
+  frame_id: placement_link
+pose:
+  position:
+    x: -0.03858946541901767
+    y: 0.010611945482674856
+    z: -0.018104255913099165
+  orientation:
+    x: 0.7111996110155917
+    y: 0.6943342477890437
+    z: -0.07869335297049597
+    w: 0.07682722067571661
+--
+[INFO] [1778681831.957374985] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778681832.060330751] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778681832.167886595] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778681832.169378459] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778681832, nanosec=48704020), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.692384215989649, y=0.13344238560525365, z=0.6857437229633919), rotation=geometry_msgs.msg.Quaternion(x=0.6866574782965478, y=0.7248275428802592, z=-0.055894773911596994, w=-0.0015214568555703047)))
+[INFO] [1778681832.173791714] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 9-2
+Bounding Box center: [-0.11368905 -0.18346547  0.05409242]
+Point-cloud center of gravity: [-0.11397763 -0.18433909  0.07223614]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+No OBB provided for visualization
+Saved point cloud and poses to /home/jetson/wbk_ur10_ws/src/vmf/8-2_poses.ply
+[INFO] [1778681842.130667895] [pcd_subsriber_node]: Inference time: 5.725s
+[INFO] [1778681842.135961374] [pcd_subsriber_node]: Predicted translation: [-0.8000268  -0.14633715  0.14606002], quaternion: (-0.99248937954148, 0.05357019016829302, 0.10981771831061088, 0.005927475664421472)
+[INFO] [1778681842.137348946] [pcd_subsriber_node]: Grasp pose published.
+cog_T_grasp:
+[[ 2.34146178e-02  9.99712154e-01 -5.24582256e-03 -3.85894654e-02]
+ [ 9.75528939e-01 -2.39950671e-02 -2.18557964e-01  1.06119455e-02]
+ [-2.18620911e-01 -2.07557860e-10 -9.75809932e-01 -1.81042559e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+[INFO] [1778681842.147794396] [pcd_subsriber_node]: Placement pose translation: [-0.03858947  0.01061195 -0.01810426], quaternion: (0.7111996110155917, 0.6943342477890437, -0.07869335297049597, 0.07682722067571661)
+[INFO] [1778681842.149054411] [pcd_subsriber_node]: Place pose published.
+Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/8-2_grasp.ply
+[INFO] [1778681845.760091244] [pcd_subsriber_node]: Inference complete. Shutting down.
+--
+result:ps, mi
+
+9-3
+header:
+  stamp:
+    sec: 1778682027
+    nanosec: 751138359
+  frame_id: base_link
+pose:
+  position:
+    x: -0.8096830248832703
+    y: -0.1433899998664856
+    z: 0.14614886045455933
+  orientation:
+    x: -0.9869622327763037
+    y: 0.027125038949423336
+    z: 0.1585899935670241
+    w: 0.004358586424166202
+---
+
+
+header:
+  stamp:
+    sec: 1778682027
+    nanosec: 755471664
+  frame_id: placement_link
+pose:
+  position:
+    x: -0.028006663089498035
+    y: 0.010751291709686694
+    z: -0.020996300064914264
+  orientation:
+    x: 0.7064544753026966
+    y: 0.689747993640967
+    z: -0.11351660576043641
+    w: 0.11083212444811129
+--
+[INFO] [1778682014.700045786] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778682014.802155927] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778682014.901254858] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778682014.902725918] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778682014, nanosec=760642453), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923620495319472, y=0.1334674538411843, z=0.6857876130736786), rotation=geometry_msgs.msg.Quaternion(x=0.6866912037537055, y=0.7247927369608989, z=-0.05593168187223586, w=-0.0015251553886205032)))
+[INFO] [1778682014.907300704] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 9-3
+Bounding Box center: [-0.12082538 -0.16770129  0.05906765]
+Point-cloud center of gravity: [-0.12177031 -0.17439812  0.07322267]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+No OBB provided for visualization
+Saved point cloud and poses to /home/jetson/wbk_ur10_ws/src/vmf/8-3_poses.ply
+[INFO] [1778682027.746407056] [pcd_subsriber_node]: Inference time: 4.972s
+[INFO] [1778682027.750814188] [pcd_subsriber_node]: Predicted translation: [-0.809683   -0.14339     0.14614886], quaternion: (-0.9869622327763037, 0.027125038949423336, 0.1585899935670241, 0.004358586424166202)
+[INFO] [1778682027.752178972] [pcd_subsriber_node]: Grasp pose published.
+cog_T_grasp:
+[[ 2.27233702e-02  9.99713729e-01 -7.49615735e-03 -2.80066631e-02]
+ [ 9.49388510e-01 -2.39278933e-02 -3.13191426e-01  1.07512917e-02]
+ [-3.13281089e-01 -1.02949194e-09 -9.49660480e-01 -2.09963001e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+[INFO] [1778682027.755310602] [pcd_subsriber_node]: Placement pose translation: [-0.02800666  0.01075129 -0.0209963 ], quaternion: (0.7064544753026966, 0.689747993640967, -0.11351660576043641, 0.11083212444811129)
+[INFO] [1778682027.756386864] [pcd_subsriber_node]: Place pose published.
+Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/8-3_grasp.ply
+[INFO] [1778682030.963311056] [pcd_subsriber_node]: Inference complete. Shutting down.
+--
+result: ps, mi
+
+9-4
+---
+header:
+  stamp:
+    sec: 1778682299
+    nanosec: 473943329
+  frame_id: base_link
+pose:
+  position:
+    x: -0.8234191536903381
+    y: -0.13968241214752197
+    z: 0.1455962359905243
+  orientation:
+    x: 0.98952934826887
+    y: 0.07037964268634236
+    z: -0.12569190732654673
+    w: 0.008939756291037448
+---
+header:
+  stamp:
+    sec: 1778682299
+    nanosec: 487247191
+  frame_id: placement_link
+pose:
+  position:
+    x: -0.04375938892105315
+    y: 0.010112388131490846
+    z: -0.018535171763726765
+  orientation:
+    x: 0.7048312594654371
+    y: 0.6980934905259802
+    z: -0.08952901103235274
+    w: 0.0886731658913086
+---
+[INFO] [1778682282.311964379] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778682282.414152814] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778682282.514056182] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778682282.515501926] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778682282, nanosec=392917804), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923802601028104, y=0.1334345445407399, z=0.6857831073436859), rotation=geometry_msgs.msg.Quaternion(x=0.6866519768797147, y=0.7248296321945832, z=-0.05593531618356611, w=-0.001518994170289923)))
+[INFO] [1778682282.520095613] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 9-4
+Bounding Box center: [-0.12860937 -0.18218234  0.0539408 ]
+Point-cloud center of gravity: [-0.12500334 -0.18675193  0.07232202]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+No OBB provided for visualization
+Saved point cloud and poses to /home/jetson/wbk_ur10_ws/src/vmf/8-4_poses.ply
+[INFO] [1778682299.467912346] [pcd_subsriber_node]: Inference time: 5.784s
+[INFO] [1778682299.473544788] [pcd_subsriber_node]: Predicted translation: [-0.82341915 -0.13968241  0.14559624], quaternion: (0.98952934826887, 0.07037964268634236, -0.12569190732654673, 0.008939756291037448)
+[INFO] [1778682299.475964867] [pcd_subsriber_node]: Grasp pose published.
+cog_T_grasp:
+[[ 9.30006943e-03  9.99953908e-01 -2.40137181e-03 -4.37593889e-02]
+ [ 9.68198597e-01 -9.60509815e-03 -2.49998486e-01  1.01123881e-02]
+ [-2.50010014e-01 -8.46394510e-10 -9.68243301e-01 -1.85351718e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+[INFO] [1778682299.486691333] [pcd_subsriber_node]: Placement pose translation: [-0.04375939  0.01011239 -0.01853517], quaternion: (0.7048312594654371, 0.6980934905259802, -0.08952901103235274, 0.0886731658913086)
+[INFO] [1778682299.488461151] [pcd_subsriber_node]: Place pose published.
+Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/8-4_grasp.ply
+[INFO] [1778682301.636295444] [pcd_subsriber_node]: Inference complete. Shutting down.
+--
+result: ps, mi
+
+9-5
+header:
+  stamp:
+    sec: 1778683049
+    nanosec: 852581896
+  frame_id: base_link
+pose:
+  position:
+    x: -0.8090125322341919
+    y: -0.1827513575553894
+    z: 0.14678014814853668
+  orientation:
+    x: -0.9949573640857289
+    y: 0.015760446904535458
+    z: 0.09904034901318327
+    w: 0.001568831506111931
+--
+header:
+  stamp:
+    sec: 1778683049
+    nanosec: 861798240
+  frame_id: placement_link
+pose:
+  position:
+    x: -0.013089881346567911
+    y: 0.014446573362232096
+    z: -0.014529325214159255
+  orientation:
+    x: 0.7201734349623926
+    y: 0.6866868066929037
+    z: -0.07168772770670043
+    w: 0.06835439111440379
+---
+[INFO] [1778683038.429540731] [pcd_subsriber_node]: Waiting for depth + camera info...
+[INFO] [1778683038.532236276] [pcd_subsriber_node]: Shape of the depth image: (720, 1280)
+[INFO] [1778683038.629407589] [pcd_subsriber_node]: Shape of pcd: (100000, 3)
+[INFO] [1778683038.630838737] [pcd_subsriber_node]: Transform:
+geometry_msgs.msg.TransformStamped(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1778683038, nanosec=508826206), frame_id='base_link'), child_frame_id='orbbec_femto_mega_link', transform=geometry_msgs.msg.Transform(translation=geometry_msgs.msg.Vector3(x=-0.6923517414087649, y=0.1334665180080358, z=0.685807002364031), rotation=geometry_msgs.msg.Quaternion(x=0.6866872811864466, y=0.7247957668435352, z=-0.0559397862550802, w=-0.0015538777924103818)))
+[INFO] [1778683038.635452861] [pcd_subsriber_node]: Shape of pcd_base: (100000, 3)
+Enter a name for the visualization: Name convention is "<input>_grasp.ply" and "<input>_poses.ply" 
+ 9-5
+Bounding Box center: [-0.12728277 -0.19697706  0.04901627]
+Point-cloud center of gravity: [-0.11921507 -0.195162    0.07160267]
+/home/jetson/wbk_ur10_ws/src/vmf/vmf_contact_main/openpoints/models/layers/subsample.py:93: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at /opt/pytorch/torch/csrc/tensor/python_tensor.cpp:78.)
+  output = torch.cuda.IntTensor(B, npoint)
+No OBB provided for visualization
+Saved point cloud and poses to /home/jetson/wbk_ur10_ws/src/vmf/9-5_poses.ply
+[INFO] [1778683049.848036157] [pcd_subsriber_node]: Inference time: 4.123s
+[INFO] [1778683049.852243293] [pcd_subsriber_node]: Predicted translation: [-0.80901253 -0.18275136  0.14678015], quaternion: (-0.9949573640857289, 0.015760446904535458, 0.09904034901318327, 0.001568831506111931)
+[INFO] [1778683049.853716266] [pcd_subsriber_node]: Grasp pose published.
+cog_T_grasp:
+[[ 4.66442007e-02  9.98867608e-01 -9.37907732e-03 -1.30898813e-02]
+ [ 9.79266898e-01 -4.75778181e-02 -1.96908079e-01  1.44465734e-02]
+ [-1.97131321e-01 -1.08985820e-10 -9.80377138e-01 -1.45293252e-02]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+[INFO] [1778683049.861552729] [pcd_subsriber_node]: Placement pose translation: [-0.01308988  0.01444657 -0.01452933], quaternion: (0.7201734349623926, 0.6866868066929037, -0.07168772770670043, 0.06835439111440379)
+[INFO] [1778683049.866613619] [pcd_subsriber_node]: Place pose published.
+Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/9-5_grasp.ply
+[INFO] [1778683051.608570950] [pcd_subsriber_node]: Inference complete. Shutting down.
+--
+result: ps, mi
+--
+
+
+
