@@ -1,7 +1,7 @@
 # Experiments 2026.05.12
 ## Test 2 variant of 2026.05.08
 - Added a wedge under the angle grinder
-![View2-z](#TODO.png)
+![View2-z](view2-z_Color.png)
 
 |No.|Result|Description|Poses|Grasp|Log|Record|
 |--|--|--|--|--|--|--|
