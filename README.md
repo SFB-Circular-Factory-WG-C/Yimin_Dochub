@@ -1,7 +1,7 @@
 # Yimin_Dochub
 This repo provides the ros2 scripts that were used to spawn and control a robot at wbk ct-cell. 
 
-For experiment videos and point clouds check out the [``Resources/experiments/``](``Resources/experiments``) folder in the [``media``](https://github.com/SFB-Circular-Factory-WG-C/Yimin_Dochub/tree/media/) branch
+For experiment videos and point clouds check out the [``Resources/experiments/``](https://github.com/SFB-Circular-Factory-WG-C/Yimin_Dochub/tree/media/Resources/experiments) folder in the [``media``](https://github.com/SFB-Circular-Factory-WG-C/Yimin_Dochub/tree/media/) branch
 
 The pick-and-place algorithm we used is **vMF-Contact**. For more information, refer to this [repo](https://github.com/YiminHu26/vMF-Contact/tree/jetson).
 
