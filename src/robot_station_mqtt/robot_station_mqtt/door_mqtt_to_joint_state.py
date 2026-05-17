@@ -39,18 +39,18 @@ class DoorMqttToJointStateNode(Node):
         self.declare_parameter(
             'mqtt_host', 
             # '192.168.2.104', # test at home
-            # '172.17.56.139', # test VM at wbk
-            '172.23.253.37', # nuc at wbk
+            '172.23.253.53', # test VM at wbk
+            # '172.23.253.37', # nuc at wbk
             ParameterDescriptor(description='MQTT broker host'))
         self.declare_parameter(
             'mqtt_port', 
-            # 1883, # test
-            1884, # nuc at wbk
+            1883, # test
+            # 1884, # nuc at wbk
             ParameterDescriptor(description='MQTT broker port'))
         self.declare_parameter(
             'mqtt_topic', 
-            # 'test/door/distance', # test
-            'esp32-door-distance-ct-cell/sensor/vl53l0x_distance/state', # wbk
+            'test/door/distance', # test
+            # 'esp32-door-distance-ct-cell/sensor/vl53l0x_distance/state', # wbk
             ParameterDescriptor(description='MQTT topic for door distance'))
         self.declare_parameter(
             'left_joint_name', 'ct_left_door_joint',
@@ -72,8 +72,8 @@ class DoorMqttToJointStateNode(Node):
             ParameterDescriptor(description='MQTT username (empty for no auth)'))
         self.declare_parameter(
             'mqtt_password', 
-            # '12345', # test
-            'crc1574', # nuc at wbk
+            '12345', # test
+            # 'crc1574', # nuc at wbk
             ParameterDescriptor(description='MQTT password'))
 
         # Read parameters

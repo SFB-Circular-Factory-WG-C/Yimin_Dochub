@@ -1,6 +1,23 @@
 # Yimin_Dochub
 This repo provides the ros2 scripts that were used to spawn and control a robot at wbk ct-cell. 
 
+For experiment videos and point clouds check out the [``Resources/experiments/``](``Resources/experiments``) folder in the [``media``](https://github.com/SFB-Circular-Factory-WG-C/Yimin_Dochub/tree/media/) branch
+
+The pick-and-place algorithm we used is **vMF-Contact**. For more information, refer to this [repo](https://github.com/YiminHu26/vMF-Contact/tree/jetson).
+
+1. Pick
+
+![pick](Resources/grasp.gif)
+
+2. Turning around
+
+![turning around](Resources/turning.gif)
+
+3. Place
+
+![place](Resources/placement.gif)
+
+
 
 ## Requirements
 - Ubuntu 22.04
@@ -16,7 +33,7 @@ This repo provides the ros2 scripts that were used to spawn and control a robot 
 - **Connect the laptop, Jetson Nano and UR robot to the switch**
 
 ## How to use?
-- So far I am doing everything in a rather clumsy way. Later everything would be done in a docker container.
+- Following steps are detailed commands to build up the environment. Alternatively a [``docker container``](https://github.com/SFB-Circular-Factory-WG-C/docker_vmf_ur10e/tree/main) can be used to make life easier.
 - Installation of environment and tools
 ``` bash
 sudo apt install terminator
@@ -29,7 +46,6 @@ sudo apt install ros-humble-ros-gazebo
 sudo apt install ros-humble-ros2-control ros-humble-ros2-controllers
 sudo apt install ros-humble-rmw-cyclonedds-cpp
 sudo apt install ros-humble-moveit
-sudo apt install ros-humble-orbbec-camera ros-humble-orbbec-description
 
 source /opt/ros/humble/setup.bash
 ```
@@ -89,7 +105,7 @@ git clone https://gitlab.kit.edu/kit/ifl/gruppen/air/ros2/ros2_robotiq_gripper.g
 mqtt_host: 172.23.253.37
 mqtt_port: 1884
 username: user1
-password: (Please contact me)
+password: 
 topic for the door: esp32-door-distance-ct-cell/sensor/vl53l0x_distance/state
 topic for the window: esp32-window-ct/select/status/state
 ```
@@ -154,23 +170,11 @@ ros2 launch orbbec_camera femto_mega.launch.py enable_colored_point_cloud:=true 
 - The TF tree diagram can be found [here](/Resources/tf_tree.pdf)
 
 ### Data Pipeline
-The final purpose of this project is the reliable pick-and-place of an angle grinder. This requires a data pipeline from perception to execution.
-![data_pipeline](Resources/vMF_data_pipeline.png)
+The final purpose of this project is the reliable pick-and-place of an angle grinder. This requires a data pipeline of ``perception(Step1&2)`` - ``inference(Step3&4)`` - ``execution(Step5)``.
+![data_pipeline](Resources/vmf_pipeline_rqt_graph.png)
 
-
-
-## Problems so far
-1. Although the door and the window can move according to their state from the MQTT broker, their models (visual or collison?) will leave a "shadow" in their previous position in RViz, which may cause trajectory planning failure.
-1. Even if the "shadow" problem is solved, the collision model of the ct machine is still a cube (solid, not hollow), which leads to the same problem as above.
-1. The gripper has very tiny offset to planned pose, which could lead to collision to the desk and grasp failure
-
-
-## What to do next?
-1. Check whether the "shadow" is collision or just visual element.
-1. Fine-tune the dimension of objects and their geometry relationships to ensure the perception and grasping work reliably.
-1. Give the robot an initial position.
-1. Try to combine single steps in the pipeline and turn it into a shell script.
-
+A [``vMF-Contact docker container``](https://github.com/SFB-Circular-Factory-WG-C/docker_vmf_ur10e/tree/main) is also used for automating environment building on the Jetson Orin Nano. The dataflow is as follows:
+![docker_dataflow](Resources/vmf_pipeline_docker.png)
 
 
 
