@@ -11,7 +11,7 @@
 - Conclusion:
     - Test10 stopped after 2 attempts due to no possible grasp poses
 
-### Test 10 variant of 2026.05.08
+### Test 10 variant 
 - Added a wedge under the angle grinder
 ![View10-z](view10-z_Color.png)
 
@@ -36,7 +36,7 @@
 - Conclusion:
     - Test11 stopped after 2 attempts due to no possible grasp poses
 
-### Test 11 variant of 2026.05.08
+### Test 11 variant
 - Added a wedge under the angle grinder
 ![View11-z](view11-z_Color.png)
 

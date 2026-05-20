@@ -756,6 +756,9 @@ Saved point cloud to /home/jetson/wbk_ur10_ws/src/vmf/18-6_grasp.ply
 
 --
 result:
+ps, mi, dev-p
+
+18-7
 header:
   stamp:
     sec: 1779202975
