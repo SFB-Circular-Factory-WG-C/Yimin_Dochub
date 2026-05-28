@@ -67,4 +67,4 @@ joint_limits:
       max_effort: 54.0
       max_position: 6.28319  # 360 degrees in radians
       max_velocity: 3.14159  # 180 degrees in radians
-      min_position: 0.0 # 0 degrees in radians
+      min_position: -2.0944  # -120 degrees in radians
