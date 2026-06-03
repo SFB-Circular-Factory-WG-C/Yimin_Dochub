@@ -56,8 +56,9 @@ class WindowMqttToJointStateNode(Node):
             self.declare_parameter(
                 'mqtt_host', 
                 # '192.168.2.104', # test at home
-                '172.23.253.53', # test VM at wbk
+                # '172.23.253.53', # test VM at wbk
                 # '172.23.253.37', # nuc at wbk
+                '172.22.223.226', # test VM at ifl
                 ParameterDescriptor(description='MQTT broker host'))
             self.declare_parameter(
                 'mqtt_port', 

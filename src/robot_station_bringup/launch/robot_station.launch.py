@@ -29,7 +29,8 @@ def generate_launch_description():
                 
                 output="screen",
                 parameters = [{
-                    "robot_ip": "172.23.253.44",
+                    # "robot_ip": "172.23.253.44", # wbk
+                    "robot_ip": "172.22.223.225" # ifl
                 }],
             ),
 
