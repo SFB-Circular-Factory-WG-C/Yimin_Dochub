@@ -33,7 +33,8 @@ The pick-and-place algorithm we used is **vMF-Contact**. For more information, r
 - **Connect the laptop, Jetson Nano and UR robot to the switch**
 
 ## How to use?
-- Following steps are detailed commands to build up the environment. Alternatively a [``docker container``](https://github.com/SFB-Circular-Factory-WG-C/docker_vmf_ur10e/tree/main) can be used to make life easier.
+- Following steps are detailed commands to build up the environment. 
+    - Alternatively a docker container can be used to make life easier.
 - Installation of environment and tools
 ``` bash
 sudo apt install terminator
@@ -42,7 +43,7 @@ sudo apt install gedit
 sudo snap install code --classic
 sudo apt install ros-humble-urdf-tutorial
 sudo apt install ros-humble-tf2-tools
-sudo apt install ros-humble-ros-gazebo
+# sudo apt install ros-humble-ros-gazebo
 sudo apt install ros-humble-ros2-control ros-humble-ros2-controllers
 sudo apt install ros-humble-rmw-cyclonedds-cpp
 sudo apt install ros-humble-moveit
@@ -60,6 +61,7 @@ pip install paho-mqtt
 ```
 
 - Add ROS2 and colcon autocomplete to ``.bashrc``
+- Assign a ``ROS_DOMAIN_ID`` to it, the ID should be identical to the one assigned to Jetson in [``docker``](https://github.com/SFB-Circular-Factory-WG-C/docker_vmf_ur10e/tree/main)(In our case it should be "**0**").
 ``` bash
 cd
 gedit .bashrc
@@ -68,6 +70,7 @@ gedit .bashrc
 
 ```
 export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export ROS_DOMAIN_ID=0
 
 source /opt/ros/humble/setup.bash
 source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
@@ -94,24 +97,31 @@ git clone -b humble https://github.com/UniversalRobots/Universal_Robots_ROS2_Dri
 git clone https://github.com/UniversalRobots/Universal_Robots_Client_Library.git
 git clone -b ros2 https://github.com/tylerjw/serial.git
 git clone git@gitlab.kit.edu:kit/ifl/gruppen/air/ros2/arm_api2.git
-git clone git@gitlab.kit.edu:kit/ifl/gruppen/air/ros2/arm_api2_py.git
+git clone git@gitlab.kit.edu:unvug/arm_api2_py.git
 git clone git@gitlab.kit.edu:kit/ifl/gruppen/air/ros2/arm_api2_msgs.git
-git clone git@gitlab.kit.edu:kit/ifl/gruppen/air/ros2/robotiq_2f_urcap_adapter.git
-git clone https://gitlab.kit.edu/kit/ifl/gruppen/air/ros2/ros2_robotiq_gripper.git
+git clone git@gitlab.kit.edu:unvug/robotiq_2f_urcap_adapter.git
+git clone git@gitlab.kit.edu:unvug/ros2_robotiq_gripper.git
 ```
 
-- **NOTE** Information to mqtt broker and relevant topics
-```
-mqtt_host: 172.23.253.37
-mqtt_port: 1884
-username: user1
-password: 
-topic for the door: esp32-door-distance-ct-cell/sensor/vl53l0x_distance/state
-topic for the window: esp32-window-ct/select/status/state
-```
+- **NOTE** Before proceeding to next step, adjust the ip addresses according to the actual network.
+- In my setup, the information is as follows:
+- **UR Robot IP**:172.23.253.44
+    - Match it in [ex-ur10-1.launch.py](src/robot_station_bringup/launch/ex-ur10-1.launch.py) and [robot_station.launch.py](src/robot_station_bringup/launch/robot_station.launch.py) as ``robot_ip``
+
+- **Laptop IP**: 172.23.253.37
+    - **mqtt_host**: 172.23.253.37
+    - **mqtt_port**: 1884
+    - username: user1
+    - password: 
+    - topic for the door: esp32-door-distance-ct-cell/sensor/vl53l0x_distance/state
+    - topic for the window: esp32-window-ct/select/status/state
+    - Match them in [door_mqtt_to_joint_state.py](src/robot_station_mqtt/robot_station_mqtt/door_mqtt_to_joint_state.py) and [window_mqtt_to_joint_state.py](src/robot_station_mqtt/robot_station_mqtt/window_mqtt_to_joint_state.py)
+    - Match the Laptop IP in URCap setting (Installation - URCap)
+
 
 - Build and source all these packages
 ``` bash
+source /opt/ros/humble/setup.bash
 cd ifl_test_ws/
 sudo rosdep init
 rosdep update
@@ -120,6 +130,13 @@ rosdep install --ignore-src --from-paths src -y
 colcon build
 source install/setup.bash
 ```
+> I encontered a problem that **there was no ur_client_library** when building the robot_station_bringup package
+> 
+> Try to build this package first by **colcon build --packages-select ur_client_library**
+> 
+> Then **source install/setup.bash**
+> 
+> Then run **colcon build** again
 
 - Run the following command to display the UR Robot in the CT cell environment
 ``` bash
