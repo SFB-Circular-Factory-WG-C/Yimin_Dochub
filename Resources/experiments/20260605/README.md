@@ -72,10 +72,10 @@ Result:
 |3|F|1|[3-F-1](logs/3-F-1_grasp.ply)|[3-F-1](logs/3-F-1_meta.json)|[3-F-1](videos/3-F-1.mp4)|F|
 |3|F|2|[3-F-2](logs/3-F-2_grasp.ply)|[3-F-2](logs/3-F-2_meta.json)|[3-F-2](videos/3-F-2.mp4)|F|
 |3|F|3|[3-F-3](logs/3-F-3_grasp.ply)|[3-F-3](logs/3-F-3_meta.json)|[3-F-3](videos/3-F-3.mp4)|F|
-|3|G|1|[3-G-1](logs/3-G-1_grasp.ply)|[3-G-1](logs/3-G-1_meta.json)|[3-G-1](videos/3-G-1.mp4)|F|
+|3|G|1|[3-G-1](logs/3-G-1_grasp.ply)|[3-G-1](logs/3-G-1_meta.json)|[3-G-1](videos/3-G-1.mp4)|F(!)|
 |3|G|2|Skipped|||F|
 |3|G|3|Skipped|||F|
-|3|I|1|[3-I-1](logs/3-I-1_grasp.ply)|[3-I-1](logs/3-I-1_meta.json)|[3-I-1](videos/3-I-1.mp4)|F|
+|3|I|1|[3-I-1](logs/3-I-1_grasp.ply)|[3-I-1](logs/3-I-1_meta.json)|[3-I-1](videos/3-I-1.mp4)|F(!)|
 |3|I|2|Skipped|||F|
 |3|I|3|Skipped|||F|
 |4|A|1|[4-A-1](logs/4-A-1_grasp.ply)|[4-A-1](logs/4-A-1_meta.json)|[4-A-1](videos/4-A-1.mp4)|PS|
@@ -149,7 +149,7 @@ Result:
 |7|G|3|[7-G-3](logs/7-G-3_grasp.ply)|[7-G-3](logs/7-G-3_meta.json)|[7-G-3](videos/7-G-3.mp4)|F|
 |7|I|1|[7-I-1](logs/7-I-1_grasp.ply)|[7-I-1](logs/7-I-1_meta.json)|[7-I-1](videos/7-I-1.mp4)|PS|
 |7|I|2|[7-I-2](logs/7-I-2_grasp.ply)|[7-I-2](logs/7-I-2_meta.json)|[7-I-2](videos/7-I-2.mp4)|F|
-|7|I|3|[7-I-3](logs/7-I-3_grasp.ply)|[7-I-3](logs/7-I-3_meta.json)|[7-I-3](videos/7-I-3.mp4)|F|
+|7|I|3|[7-I-3](logs/7-I-3_grasp.ply)|[7-I-3](logs/7-I-3_meta.json)|[7-I-3](videos/7-I-3.mp4)|F(!)|
 |8|A|1|[8-A-1](logs/8-A-1_grasp.ply)|[8-A-1](logs/8-A-1_meta.json)|[8-A-1](videos/8-A-1.mp4)|F|
 |8|A|2|[8-A-2](logs/8-A-2_grasp.ply)|[8-A-2](logs/8-A-2_meta.json)|[8-A-2](videos/8-A-2.mp4)|F|
 |8|A|3|[8-A-3](logs/8-A-3_grasp.ply)|[8-A-3](logs/8-A-3_meta.json)|[8-A-3](videos/8-A-3.mp4)|PS|
