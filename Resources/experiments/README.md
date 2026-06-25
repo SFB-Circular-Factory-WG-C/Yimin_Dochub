@@ -11,3 +11,8 @@
 |[20260605](20260605/)|Baseline2: with COG params, without new fingertips|~50%|
 |[20260611](20260611/)|Final：with COG params and new fingertips|~80%|
 |[20260622](20260622/)|Baseline1: without COG params or new fingertips|~10%|
+
+
+
+---
+**The full lab report of the 3 stage experiment can be found [here](result.xlsx).**
