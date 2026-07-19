@@ -1,0 +1,1 @@
+This folder contains other images and videos that may be useful for the presentation.
